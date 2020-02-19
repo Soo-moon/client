@@ -15,7 +15,7 @@ import java.net.Socket;
 
 public class Client extends AppCompatActivity {
 
-    Network_Thread network_thread =null;
+    Network network =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,8 @@ public class Client extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        network_thread = new Network_Thread();
-        network_thread.start();
+        network = new Network();
+        network.start();
 
 
 

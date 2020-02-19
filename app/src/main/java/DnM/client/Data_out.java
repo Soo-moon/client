@@ -5,32 +5,25 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class Data_out extends Thread {
-    Socket socket=null;
-    boolean first = true;
-    DataOutputStream out =null;
+    Socket socket;
+    String Message;
+    DataOutputStream out = null;
 
-    public Data_out(Socket socket){
-        this.socket=socket;
+    public Data_out(Socket socket, String Message){
+        this.socket = socket;
+        this.Message= Message;
     }
 
-    public void write(String str) throws IOException {
-        out.writeUTF(str);
+    public void SendMessage() throws IOException {
+        out.writeUTF(Message);
         out.flush();
     }
 
-    public void run(){
+    public void run() {
         try {
             out = new DataOutputStream(socket.getOutputStream());
-
-            if(first){
-                write("request data");
-                first = false;
-            }
-
-
-
-        }
-        catch (Exception e) {
+            SendMessage();
+        } catch (Exception e) {
         }
     }
 }
