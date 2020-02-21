@@ -1,5 +1,7 @@
 package DnM.client;
 
+import android.util.Log;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -23,6 +25,9 @@ public class Data_out extends Thread {
         try {
             out = new DataOutputStream(socket.getOutputStream());
             SendMessage();
+            Data_In data_in = new Data_In(socket);
+            data_in.start();
+            data_in.join();
         } catch (Exception e) {
         }
     }

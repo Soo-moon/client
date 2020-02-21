@@ -15,18 +15,20 @@ import java.net.Socket;
 
 public class Client extends AppCompatActivity {
 
-    Network network =null;
+    Network network = new Network();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        network = new Network();
         network.start();
+        try {
+            network.join();
+        } catch (InterruptedException e) {
+        }
 
-
+        network.Send("request data");
 
 
     }

@@ -14,20 +14,37 @@ public class userinfo {
         this.Rank = Rank;
     }
 
-    public String[] getteam(){
-        return this.Myteam;
+    public String[] getTeam(){
+        return Myteam;
     }
 
     public int getScore(){
-        return this.Score;
+        return Score;
     }
 
     public String getNickname(){
-        return this.Nickname;
+        return Nickname;
     }
 
     public String getRank(){
-        return this.Rank;
+        return Rank;
+    }
+
+
+    public void setScore(int Score){
+       this.Score = Score;
+    }
+
+    public void setNickname(String Nickname){
+        this.Nickname = Nickname;
+    }
+
+    public void setRank(String Rank){
+        this.Rank=Rank;
+    }
+
+    public void setMyteam(String[] Myteam){
+        this.Myteam=Myteam;
     }
 
 }

@@ -6,19 +6,19 @@ import java.io.DataInputStream;
 import java.net.Socket;
 
 public class Data_In extends Thread {
-    Socket socket =null;
+    Socket socket ;
 
     public Data_In(Socket socket){
         this.socket =socket;
     }
 
-    public void run(){
+    public void run() {
         try {
             DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
             while (true) {
                 String msg = dataInputStream.readUTF();
                 Log.d("conn", msg);
-                if (msg.equals("stop")) {
+                if (msg.equals("end")) {
                     break;
                 }
             }
