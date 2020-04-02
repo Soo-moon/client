@@ -35,6 +35,7 @@ public class Data_out extends Thread {
 
     }
 
+    //이 부분이 수신쓰레드 키는 부분
     public void run() {
         try {
             out = new ObjectOutputStream(socket.getOutputStream());
