@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
+import shared.Player;
+
 public class Client extends AppCompatActivity {
 
     Network network = new Network();
@@ -26,9 +28,12 @@ public class Client extends AppCompatActivity {
         try {
             network.join();
         } catch (InterruptedException e) {
+
         }
 
         network.Send("request data");
+        Player player = new Player("sk","최승준","지명",18,84,73,80,0,0,0);
+        network.Send(player);
 
 
     }

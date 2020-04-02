@@ -1,7 +1,7 @@
 package DnM.client;
 
 public class userinfo {
-
+    //유저정보
     String [] Myteam = null;
     int Score = 0 ;
     String Rank = null;
@@ -18,6 +18,7 @@ public class userinfo {
         return Myteam;
     }
 
+
     public int getScore(){
         return Score;
     }
@@ -33,6 +34,7 @@ public class userinfo {
 
     public void setScore(int Score){
        this.Score = Score;
+
     }
 
     public void setNickname(String Nickname){

@@ -1,29 +1,43 @@
 package DnM.client;
 
-import android.util.Log;
-
-import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.Socket;
+
+import shared.Player;
 
 public class Data_out extends Thread {
     Socket socket;
-    String Message;
-    DataOutputStream out = null;
+    String Message = null;
+    ObjectOutputStream out = null;
+    Player player =null;
 
-    public Data_out(Socket socket, String Message){
+    public Data_out(Socket socket, String Message) {
         this.socket = socket;
-        this.Message= Message;
+        this.Message = Message;
+    }
+
+    public Data_out(Socket socket, Player player) {
+        this.socket = socket;
+        this.player = player;
     }
 
     public void SendMessage() throws IOException {
-        out.writeUTF(Message);
-        out.flush();
+        if (Message != null) {
+            out.writeUTF(Message);
+            out.flush();
+        }
+        if(player != null){
+            out.writeObject(player);
+            out.flush();
+        }
+
     }
 
     public void run() {
         try {
-            out = new DataOutputStream(socket.getOutputStream());
+            out = new ObjectOutputStream(socket.getOutputStream());
             SendMessage();
             Data_In data_in = new Data_In(socket);
             data_in.start();
