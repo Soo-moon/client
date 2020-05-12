@@ -2,19 +2,20 @@ package DnM.client;
 
 import android.util.Log;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import shared.Player;
 
 public class Network extends Thread {
-    Socket socket=null;
+    Socket socket;
 
     //소켓 설정
     public void run() {
         try {
-            socket = new Socket("172.30.1.43", 5000);
+            socket = new Socket("192.168.55.133", 6000);
 
         } catch (Exception e) {
-            Log.d("conn","run error" + e.toString());
+            Log.d("error","Network error" + e.toString());
         }
     }
 
@@ -25,10 +26,8 @@ public class Network extends Thread {
         data_out.start();
     }
 
-
-    //(임시상태) Player 란 클래스를 소켓에서 전송중
-    public void Send(Player player){
-        Data_out data_out = new Data_out(socket,player);
+    public void Send(ArrayList<Player> arrayList){
+        Data_out data_out = new Data_out(socket,arrayList,1);
         data_out.start();
     }
 
