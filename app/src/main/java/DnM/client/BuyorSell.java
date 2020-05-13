@@ -38,4 +38,9 @@ public class BuyorSell extends AppCompatActivity {
             builder.show();
         }
     }
+    public void shop_exit(View view){
+        Intent intent = new Intent(getApplicationContext(), Userinfo.class);
+        startActivity(intent);
+        finish();
+    }
 }
