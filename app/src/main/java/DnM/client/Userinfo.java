@@ -1,13 +1,13 @@
 package DnM.client;
 
-public class userinfo {
+public class Userinfo {
     //유저정보
     String [] Myteam = null;
     int Score = 0 ;
     String Rank = null;
     String Nickname = null;
 
-    public userinfo(String[] Myteam , int Score , String Rank , String Nickname){
+    public Userinfo(String[] Myteam , int Score , String Rank , String Nickname){
         this.Myteam = Myteam;
         this.Score = Score;
         this.Nickname = Nickname;
