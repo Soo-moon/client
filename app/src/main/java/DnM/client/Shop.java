@@ -15,7 +15,7 @@ public class Shop extends AppCompatActivity {
         setContentView(R.layout.activity_buyorsell);
     }
     public void buy (View view){
-        Intent intent = new Intent(getApplicationContext(), Store.class);
+        Intent intent = new Intent(getApplicationContext(), BuyorSell.class);
         startActivity(intent);
         finish();
     }
