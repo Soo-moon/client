@@ -18,7 +18,7 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RelativeLayout = findViewById(R.id.relative);
 
-        Drawable draw = getResources().getDrawable(R.drawable.main1);
+        Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);
         RelativeLayout.setBackgroundDrawable(draw);
     }
