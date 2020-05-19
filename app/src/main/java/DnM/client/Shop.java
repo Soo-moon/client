@@ -14,11 +14,15 @@ public class Shop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyorsell);
     }
+
+
     public void buy (View view){
         Intent intent = new Intent(getApplicationContext(), BuyorSell.class);
         startActivity(intent);
         finish();
     }
+
+
     public void sell (View view){
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
         startActivity(intent);

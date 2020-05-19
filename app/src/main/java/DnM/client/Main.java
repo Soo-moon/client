@@ -38,7 +38,7 @@ public class Main extends AppCompatActivity {
         finish();
     }
     public void vs(View view){
-        Intent intent = new Intent(getApplicationContext(), VS.class);
+        Intent intent = new Intent(getApplicationContext(), Client.class);
         startActivity(intent);
         finish();
     }
