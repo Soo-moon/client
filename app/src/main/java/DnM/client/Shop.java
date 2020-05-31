@@ -19,13 +19,9 @@ public class Shop extends AppCompatActivity {
     public void buy (View view){
         Intent intent = new Intent(getApplicationContext(), BuyorSell.class);
         startActivity(intent);
-        finish();
     }
-
-
     public void sell (View view){
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
         startActivity(intent);
-        finish();
     }
 }

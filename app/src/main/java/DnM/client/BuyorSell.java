@@ -2,8 +2,11 @@ package DnM.client;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -39,8 +42,16 @@ public class BuyorSell extends AppCompatActivity {
         }
     }
     public void shop_exit(View view){
-        Intent intent = new Intent(getApplicationContext(), Userinfo.class);
+        Intent intent = new Intent(getApplicationContext(), Main.class);
         startActivity(intent);
         finish();
+    }
+
+    public void next(View view){
+
+    }
+    public void image1(View view){
+        Button btn = findViewById(R.id.shop_search_image);
+        btn.setFocusable(true);
     }
 }

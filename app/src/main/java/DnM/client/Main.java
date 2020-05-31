@@ -25,21 +25,17 @@ public class Main extends AppCompatActivity {
     public void shop(View view){
         Intent intent = new Intent(getApplicationContext(), Shop.class);
         startActivity(intent);
-        finish();
     }
     public void reinforce(View view){
         Intent intent = new Intent(getApplicationContext(), Reinforce.class);
         startActivity(intent);
-        finish();
     }
     public void userinfo(View view){
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
         startActivity(intent);
-        finish();
     }
-    public void vs(View view){
+    public void vs(View view) {
         Intent intent = new Intent(getApplicationContext(), Client.class);
         startActivity(intent);
-        finish();
     }
 }

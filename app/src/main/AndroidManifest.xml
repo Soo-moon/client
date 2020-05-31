@@ -16,16 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Shop">
         </activity>
         <activity android:name=".BuyorSell">
         </activity>
-        <activity android:name=".Userinfo">
+        <activity android:name=".Reinforce"/>
+        <activity
+            android:name=".Userinfo"
+            android:windowSoftInputMode="stateHidden"/>
 
-        </activity>
-        <activity android:name=".Client"></activity>
-    </application>
+
+    </application>  
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 </manifest>
