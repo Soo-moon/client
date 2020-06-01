@@ -8,6 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="reinforce_mycard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:text="내 카드" />
 
     <Button
@@ -16,7 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:onClick="reinforce_exit"
-        android:text="나가기" />
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/exitbtn" />
 
 
         <ListView
@@ -28,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="reinforce"
+        android:background="@drawable/reinforcebtn"
         android:layout_below="@+id/reinforce_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp">
@@ -46,7 +51,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="82dp"
-        android:background="@drawable/xkwk1" />
+        android:background="@drawable/border" />
 
     <ListView
         android:layout_width="150dp"

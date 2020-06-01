@@ -16,7 +16,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="나가기"
+        android:background="@drawable/exitbtn"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:onClick="userinfo_exit"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"/>

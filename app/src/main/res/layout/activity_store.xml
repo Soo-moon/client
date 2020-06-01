@@ -114,6 +114,7 @@
 
     <Button
         android:id="@+id/shop_buy"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -129,14 +130,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="@drawable/border"
-        android:onClick="shop_exit"
-        android:text="나가기"/>
+        android:background="@drawable/exitbtn"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="shop_exit" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="580dp"
         android:layout_toRightOf="@+id/count"
         android:background="#00ff0000"
         android:onClick="next"
@@ -146,7 +148,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="580dp"
         android:background="#00ff0000"
         android:layout_toLeftOf="@+id/count"
         android:onClick="previous"
@@ -159,7 +161,7 @@
         android:layout_height="wrap_content"
         android:text="1/2"
         android:textSize="20dp"
-        android:layout_marginTop="620dp"
+        android:layout_marginTop="580dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_centerHorizontal="true"/>
