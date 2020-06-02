@@ -3,6 +3,7 @@ package Naver;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -14,8 +15,9 @@ import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import DnM.client.Main;
 import DnM.client.R;
-
+import DnM.client.Shop;
 
 
 public class Login extends Activity {
@@ -29,7 +31,7 @@ public class Login extends Activity {
     private static OAuthLogin mOAuthLoginInstance;
     private static Context mContext;
 
-    public static String personalid  = "";
+    public static String personalid  = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,12 +58,15 @@ public class Login extends Activity {
     }
 
     @SuppressLint("HandlerLeak")
-    static private OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
+    private OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
         @Override
         public void run(boolean success) {
             if (success) {
-              //  Toast.makeText(mContext,"로그인 성공",Toast.LENGTH_SHORT).show();
                 new Login.RequestApiTask().execute();
+                Intent intent = new Intent(getApplicationContext(), Main.class);
+                intent.putExtra("id",personalid);
+                startActivity(intent);
+                finish();
             } else {
                 String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
                 String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);
@@ -84,8 +89,10 @@ public class Login extends Activity {
             try {
                 JSONObject jsonObject =new JSONObject(content);
                 JSONObject response = jsonObject.getJSONObject("response");
-                personalid = response.getString("email");
-                Toast.makeText(mContext,personalid,Toast.LENGTH_SHORT).show();
+                String t=response.getString("email");
+                personalid = t.substring(0,t.lastIndexOf("@"));
+
+
 
             } catch (JSONException e) {
                 e.printStackTrace();

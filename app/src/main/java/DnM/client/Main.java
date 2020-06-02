@@ -5,12 +5,16 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import static Naver.Login.personalid;
 
 public class Main extends AppCompatActivity {
 
     private RelativeLayout RelativeLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,20 +26,25 @@ public class Main extends AppCompatActivity {
         draw.setAlpha(70);
         RelativeLayout.setBackgroundDrawable(draw);
     }
-    public void shop(View view){
+
+    public void shop(View view) {
         Intent intent = new Intent(getApplicationContext(), Shop.class);
         startActivity(intent);
     }
-    public void reinforce(View view){
+
+    public void reinforce(View view) {
         Intent intent = new Intent(getApplicationContext(), Reinforce.class);
         startActivity(intent);
     }
-    public void userinfo(View view){
+
+    public void userinfo(View view) {
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
         startActivity(intent);
     }
+
     public void vs(View view) {
         Intent intent = new Intent(getApplicationContext(), Client.class);
+        intent.putExtra("id",personalid);
         startActivity(intent);
     }
 }

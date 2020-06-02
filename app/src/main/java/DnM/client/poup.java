@@ -32,12 +32,11 @@ public class poup extends Activity {
         load.setImageResource(R.drawable.reinforcesucces);
 
 
-
     }
 
 
     //확인 버튼 클릭
-    public void mOnClose(View v){
+    public void mOnClose(View v) {
         //데이터 전달하기
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
@@ -49,7 +48,7 @@ public class poup extends Activity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //바깥레이어 클릭시 안닫히게
-        if(event.getAction()== MotionEvent.ACTION_OUTSIDE){
+        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
             return false;
         }
         return true;

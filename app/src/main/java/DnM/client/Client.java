@@ -2,6 +2,7 @@ package DnM.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +17,7 @@ import shared.Player;
 
 public class Client extends AppCompatActivity {
     int time = 0;
-
+    String personalid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,9 @@ public class Client extends AppCompatActivity {
         setContentView(R.layout.activity_vs);
 
         Button btn = findViewById(R.id.test);
+        Intent intent = getIntent();
+        personalid = intent.getExtras().getString("id");
+
 
         final Network network = new Network();
         network.start();
@@ -35,7 +39,7 @@ public class Client extends AppCompatActivity {
         }
 
 
-        final Obj obj1 = new Obj("request", 1);
+        final Obj obj1 = new Obj(personalid, 3);
      //   network.Send(obj1);
 
 
@@ -60,9 +64,9 @@ public class Client extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (time == 0) {
-                   // network.Send( obj1);
+                    network.Send( obj1);
                     time++;
-                   // Toast.makeText(getApplicationContext(),"1",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"1",Toast.LENGTH_SHORT).show();
                 }
                 else if(time ==1){
                     network.Send(obj2);
