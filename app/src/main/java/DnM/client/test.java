@@ -35,6 +35,7 @@ public class test extends AppCompatActivity {
         Intent intent = new Intent(this, poup.class);
         intent.setType("image/gif/*");
         startActivityForResult(intent, 1);
+        //바보
 
 
     }
