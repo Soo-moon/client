@@ -2,15 +2,19 @@ package DnM.client;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
+import android.widget.ImageView;
 
-public class PopupActivity extends Activity {
 
-    TextView txtText;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+
+public class poup extends Activity {
 
 
     @Override
@@ -21,13 +25,16 @@ public class PopupActivity extends Activity {
         setContentView(R.layout.activity_popup);
 
         //UI 객체생성
-        txtText = (TextView)findViewById(R.id.txtText);
 
         //데이터 가져오기
         Intent intent = getIntent();
-        String data = intent.getStringExtra("data");
-        txtText.setText(data);
+        intent.setType("image/gif/*");
+        ImageView load = findViewById(R.id.gif_image);
+        GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(load);
+        Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
+
     }
+
 
     //확인 버튼 클릭
     public void mOnClose(View v){

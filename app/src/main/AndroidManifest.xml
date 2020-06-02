@@ -11,10 +11,6 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Shop">
         </activity>
@@ -24,8 +20,13 @@
         <activity
             android:name=".Userinfo"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".test"/>
-        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".test">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".poup" android:theme="@android:style/Theme.Dialog"/>
 
     </application>  
     <uses-permission android:name="android.permission.INTERNET"/>
