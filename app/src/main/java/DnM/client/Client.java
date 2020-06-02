@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 
 import shared.Obj;
@@ -15,6 +16,7 @@ import shared.Player;
 
 public class Client extends AppCompatActivity {
     int time = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +39,9 @@ public class Client extends AppCompatActivity {
      //   network.Send(obj1);
 
 
-        Player player = new Player("sk", "최승준", "지명", 18, 84, 73, 80, 0, 0, 0);
-        Player player2 = new Player("sk", "김성현", "1루수", 18, 70, 97, 72, 0, 0, 0);
-        Player player3 = new Player("sk", "정은원", "2루수", 18, 86, 87, 93, 0, 0, 0);
+        Player player = new Player("sk", "최승준", "지명", 18, 84, 73, 80, 0, 0, 0,"타자");
+        Player player2 = new Player("sk", "김성현", "1루수", 18, 70, 97, 72, 0, 0, 0,"타자");
+        Player player3 = new Player("sk", "정은원", "2루수", 18, 86, 87, 93, 0, 0, 0,"타자");
 
         ArrayList<Player> playerArrayList = new ArrayList<>();
         playerArrayList.add(player);
@@ -47,7 +49,7 @@ public class Client extends AppCompatActivity {
         playerArrayList.add(player3);
 
        final Obj obj2 = new Obj(playerArrayList, 2);
-        network.Send(obj2);
+     //   network.Send(obj2);
 
        final Obj obj3 = new Obj("/end", 1);
       //  network.Send(obj3);
@@ -58,9 +60,9 @@ public class Client extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (time == 0) {
-                    network.Send( obj1);
+                   // network.Send( obj1);
                     time++;
-                    Toast.makeText(getApplicationContext(),"1",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(),"1",Toast.LENGTH_SHORT).show();
                 }
                 else if(time ==1){
                     network.Send(obj2);
