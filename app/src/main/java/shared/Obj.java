@@ -9,22 +9,22 @@ public class Obj implements Serializable {
 
     ArrayList<Player> arrayList = null;
     Object object;
-    String str = null;
+    String Message = null;
     int code;
+    String id;
 
     public Obj(Object object, int code) {
         this.object = object;
-        this.code =code;
+        this.code = code;
 
         if (object instanceof ArrayList)
             arrayList = (ArrayList<Player>) object;
 
         if (object instanceof String)
-            str = (String) object;
+            Message = (String) object;
     }
 
-    public Obj(){
-
+    public Obj() {
     }
 
     //code == 2
@@ -37,13 +37,17 @@ public class Obj implements Serializable {
 
     //code == 1
     public String getstr() {
-        if (str != null)
-            return str;
+        if (Message != null)
+            return Message;
         else
             return "";
     }
 
-    public int getcode(){
+    public String getid() {
+        return Message;
+    }
+
+    public int getcode() {
         return code;
     }
 

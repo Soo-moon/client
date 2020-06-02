@@ -27,17 +27,11 @@
             android:name=".Userinfo"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name="Naver.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".test">
-    </activity>
-        <activity android:name=".PopUpWindowActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-
     </application>
-
 
 </manifest>
