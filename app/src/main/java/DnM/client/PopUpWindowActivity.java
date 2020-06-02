@@ -78,11 +78,11 @@ ImageView imageView;
         try {
             LayoutInflater inflater = (LayoutInflater) PopUpWindowActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            View layout = inflater.inflate(R.layout.activity_popup, (ViewGroup) findViewById(R.id.popup_element));
+            View layout = inflater.inflate(R.layout.activity_popup, (ViewGroup) findViewById(R.id.popup));
 
             pwindo = new PopupWindow(layout, mWidthPixels - 100, mHeightPixels - 500, true);
             pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
-            btnClosePopup = layout.findViewById(R.id.btn_close_popup);
+            btnClosePopup = layout.findViewById(R.id.btn_close);
             btnClosePopup.setOnClickListener(cancel_button_click_listner);
 
             imageView = findViewById(R.id.gif_image);
