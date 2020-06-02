@@ -85,9 +85,9 @@ ImageView imageView;
             btnClosePopup = layout.findViewById(R.id.btn_close);
             btnClosePopup.setOnClickListener(cancel_button_click_listner);
 
-            imageView = findViewById(R.id.gif_image);
+            imageView = layout.findViewById(R.id.gif_image);
             GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
-            Glide.with(inflater.getContext()).load(R.drawable.reinforcesucces).into(gifImage);
+            Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
 
         } catch (Exception e) {
             e.printStackTrace();
