@@ -25,13 +25,13 @@ public class poup extends Activity {
         setContentView(R.layout.activity_popup);
 
         //UI 객체생성
-
+        ImageView load = findViewById(R.id.gif_image);
         //데이터 가져오기
         Intent intent = getIntent();
         intent.setType("image/gif/*");
-        ImageView load = findViewById(R.id.gif_image);
-        GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(load);
-        Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
+        load.setImageResource(R.drawable.reinforcesucces);
+
+
 
     }
 
@@ -40,7 +40,6 @@ public class poup extends Activity {
     public void mOnClose(View v){
         //데이터 전달하기
         Intent intent = new Intent();
-        intent.putExtra("result", "Close Popup");
         setResult(RESULT_OK, intent);
 
         //액티비티(팝업) 닫기
