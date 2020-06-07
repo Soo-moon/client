@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +12,6 @@ import java.util.ArrayList;
 
 import shared.Player;
 import shared.UserData;
-
-import static Naver.Login.personalid;
 
 public class Main extends AppCompatActivity {
 

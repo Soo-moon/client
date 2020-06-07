@@ -7,6 +7,7 @@
 
     <EditText
         android:id="@+id/shop_search_text"
+        android:fontFamily="@font/mapo"
         android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,6 +18,7 @@
 
     <Button
         android:id="@+id/shop_search_button"
+        android:fontFamily="@font/mapo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="검색"

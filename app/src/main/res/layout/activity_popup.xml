@@ -11,6 +11,7 @@
     <TextView
         android:id="@+id/title"
         android:text="강화 결과"
+        android:fontFamily="@font/mapo"
         android:textSize="20sp"
         android:textColor="#fff"
         android:gravity="center"
@@ -39,6 +40,7 @@
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/mapo"
 
             android:onClick="mOnClose"/>
 
