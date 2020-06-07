@@ -17,10 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import shared.Player;
-
 import Naver.Login;
 import shared.Obj;
+import shared.Player;
+
 
 public class BuyorSell extends AppCompatActivity {
 
@@ -29,14 +29,13 @@ public class BuyorSell extends AppCompatActivity {
     public static ArrayList<Player> SearchData = new ArrayList<>();
 
     EditText editText;
-
+    int position1 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
 
-       final int position;
 
         RelativeLayout = findViewById(R.id.relative);
         editText = findViewById(R.id.shop_search_text);
@@ -46,7 +45,7 @@ public class BuyorSell extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                
+                position1 = position;
             }
 
             @Override
@@ -81,6 +80,15 @@ public class BuyorSell extends AppCompatActivity {
         }
     }
     public  void shop_search(View view){
+
+        String str = editText.getText().toString();
+
+        if(position1 == 0) {
+            Login.network.Send(new Obj(str, 3));
+        }
+        else if(position1 == 1){
+            Login.network.Send(new Obj(str,4));
+        }
 
     }
     public void shop_exit(View view){

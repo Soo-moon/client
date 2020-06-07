@@ -6,25 +6,35 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.InputStream;
 
+import Naver.Login;
+import shared.Player;
+
 public class Userinfo extends AppCompatActivity {
     private RelativeLayout RelativeLayout;
     ImageView imageview;
     Button button;
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userinfo);
 
         RelativeLayout = findViewById(R.id.relative);
+        listView = findViewById(R.id.userinfo_listview);
+
+        /*ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam) ;
+        listView.setAdapter(adapter);*/
 
         Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);
@@ -34,6 +44,7 @@ public class Userinfo extends AppCompatActivity {
         button = findViewById(R.id.button);
 
         }
+
     public void userinfo_profilebtn(View view){              //프로필 사진 변경 클릭시
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -66,4 +77,5 @@ public class Userinfo extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Main.class);
         startActivity(intent);
     }
+
 }
