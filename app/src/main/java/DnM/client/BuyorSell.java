@@ -12,9 +12,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
+import shared.Player;
+
 public class BuyorSell extends AppCompatActivity {
 
     private RelativeLayout RelativeLayout;
+    public static ArrayList<Player> SearchData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
