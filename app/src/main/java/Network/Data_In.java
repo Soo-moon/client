@@ -10,12 +10,12 @@ import DnM.client.Main;
 import DnM.client.Shop;
 import shared.Obj;
 
-public class Data_In extends Thread  {
+public class Data_In extends Thread {
 
     ObjectInputStream oin;
 
 
-    public Data_In(ObjectInputStream oin ){
+    public Data_In(ObjectInputStream oin) {
         this.oin = oin;
     }
 
@@ -23,13 +23,13 @@ public class Data_In extends Thread  {
         try {
             boolean end = true;
             while (end) {
-                Log.d("test","대기");
+                Log.d("test", "대기");
                 Obj obj = (Obj) oin.readObject();
-                Log.d("test","수신");
+                Log.d("test", "수신");
 
                 int code = obj.getcode();
 
-                switch (code){
+                switch (code) {
 
                     case 0:
                         Main.userData = obj.getUserData();
@@ -37,16 +37,8 @@ public class Data_In extends Thread  {
 
                     case 1:
                         final String message = obj.getstr();
-                        if (message.equals("/end")) end =false;
-//                        Handler mHandler = new Handler(Looper.getMainLooper());
-//                        mHandler.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                Toast.makeText(Login.mContext,"서버 수신 : "+message,Toast.LENGTH_SHORT).show();
-//                            }
-//                        });
-                        //메세지 송신 완료
-                        //toast 메세지 activity 전환 도중 씹힘 
+                        if (message.equals("/end")) end = false;
+                        Log.d("test",  message);
 
                         break;
 
@@ -62,9 +54,7 @@ public class Data_In extends Thread  {
             }
         } catch (Exception e) {
             Log.d("conn", "in " + e.toString());
-        }
-
-        finally {
+        } finally {
             try {
                 oin.close();
             } catch (IOException e) {
