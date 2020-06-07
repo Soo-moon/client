@@ -6,6 +6,8 @@ import android.os.Bundle;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import Network.Network;
+
 
 public class vs extends AppCompatActivity {
 

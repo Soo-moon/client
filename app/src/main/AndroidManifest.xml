@@ -20,19 +20,20 @@
 
         </activity>
         <activity android:name=".Shop"></activity>
-        <activity android:name=".Client" />
+        <activity android:name=".vs" />
         <activity android:name=".BuyorSell"></activity>
         <activity android:name=".Reinforce" />
         <activity
             android:name=".Userinfo"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name="Naver.Login">
-        </activity>
-        <activity android:name=".PopUpWindowActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".PopUpWindowActivity">
+
         </activity>
     </application>
 

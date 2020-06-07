@@ -8,7 +8,12 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
+import shared.Player;
+
 public class Shop extends AppCompatActivity {
+    public static ArrayList<Player> SearchData = new ArrayList<>();
 
 private RelativeLayout RelativeLayout;
     @Override

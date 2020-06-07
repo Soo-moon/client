@@ -1,21 +1,14 @@
-package DnM.client;
+package Network;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
-import android.widget.Toast;
 
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.net.Socket;
-import java.util.ArrayList;
 
-import java.util.logging.LogRecord;
-
-import Naver.Login;
+import DnM.client.Main;
+import DnM.client.Shop;
 import shared.Obj;
-import shared.Player;
 
 public class Data_In extends Thread  {
 
@@ -59,6 +52,10 @@ public class Data_In extends Thread  {
 
                     case 2:
                         Main.myteam = obj.getarray();
+                        break;
+
+                    case 3:
+                        Shop.SearchData = obj.getarray();
                         break;
                 }
 

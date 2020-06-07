@@ -27,6 +27,10 @@ public class Obj implements Serializable {
         else if(object instanceof UserData)
             userData = (UserData) object;
     }
+
+
+    //code 3 == 팀 검색
+    //code 4 == 선수명 검색
     
     public UserData getUserData() {return userData;}
     
