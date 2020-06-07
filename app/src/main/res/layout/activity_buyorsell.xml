@@ -12,11 +12,13 @@
         android:layout_below="@+id/buy"
         android:layout_centerHorizontal="true"
         android:background="@drawable/border"
-        android:text="팔기"/>
+        android:text="팔기"
+        android:fontFamily="@font/mapo"/>
 
     <Button
         android:id="@+id/buy"
         android:onClick="buy"
+        android:fontFamily="@font/mapo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

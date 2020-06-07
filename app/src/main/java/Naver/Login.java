@@ -89,7 +89,7 @@ public class Login extends Activity {
 
     };
 
-    private static class RequestApiTask extends AsyncTask<Void, Void, String> {
+    private class RequestApiTask extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
