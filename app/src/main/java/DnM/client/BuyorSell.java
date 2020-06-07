@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,17 +19,41 @@ import java.util.ArrayList;
 
 import shared.Player;
 
+import Naver.Login;
+import shared.Obj;
+
 public class BuyorSell extends AppCompatActivity {
 
     private RelativeLayout RelativeLayout;
+
     public static ArrayList<Player> SearchData = new ArrayList<>();
+
+    EditText editText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
 
+       final int position;
+
         RelativeLayout = findViewById(R.id.relative);
+        editText = findViewById(R.id.shop_search_text);
+
+        Spinner spinner = findViewById(R.id.spinner);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);
@@ -52,6 +79,9 @@ public class BuyorSell extends AppCompatActivity {
                     });
             builder.show();
         }
+    }
+    public  void shop_search(View view){
+
     }
     public void shop_exit(View view){
         Intent intent = new Intent(getApplicationContext(), Main.class);

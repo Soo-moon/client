@@ -8,20 +8,23 @@
     <EditText
         android:id="@+id/shop_search_text"
         android:fontFamily="@font/mapo"
+        android:layout_marginTop="10dp"
         android:textColor="@android:color/black"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:background="@drawable/border"
         android:layout_toLeftOf="@+id/shop_search_button"
-        android:hint="선수이름 검색하기" />
+        android:hint="검색하세요" />
 
     <Button
         android:id="@+id/shop_search_button"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/mapo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:onClick="shop_search"
         android:background="@drawable/searchbtn"
         />
 
@@ -46,6 +49,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/xkwk2" />
+
 
     <Button
         android:id="@+id/shop_search_image3"
@@ -156,6 +160,18 @@
         android:onClick="previous"
         android:rotation="180"
         app:srcCompat="@android:drawable/ic_media_play" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:entries="@array/검색"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    </Spinner>
 
     <TextView
         android:id="@+id/count"
