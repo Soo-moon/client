@@ -3,23 +3,31 @@ package DnM.client;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.InputStream;
 
 public class Userinfo extends AppCompatActivity {
-
+    private RelativeLayout RelativeLayout;
     ImageView imageview;
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userinfo);
+
+        RelativeLayout = findViewById(R.id.relative);
+
+        Drawable draw = getResources().getDrawable(R.drawable.main);
+        draw.setAlpha(70);
+        RelativeLayout.setBackgroundDrawable(draw);
 
         imageview = findViewById(R.id.userinfo_imageView);
         button = findViewById(R.id.button);

@@ -6,14 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.graphics.Point;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -22,8 +20,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
-
-import androidx.core.widget.PopupWindowCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
@@ -40,7 +36,7 @@ ImageView imageView;
         super.onCreate(savedInstanceState);
         //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_reinforce);
 
 
         WindowManager w = getWindowManager();
@@ -111,18 +107,5 @@ ImageView imageView;
         finish();
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        //바깥레이어 클릭시 안닫히게
-        if (event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-            return false;
-        }
-        return true;
-    }
 
-    @Override
-    public void onBackPressed() {
-        //안드로이드 백버튼 막기
-        return;
-    }
 }

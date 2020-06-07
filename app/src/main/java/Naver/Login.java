@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import shared.UserData;
 
 public class Login extends Activity {
 
+    private RelativeLayout RelativeLayout;
     private OAuthLoginButton mOAuthLoginButton;
 
     private static String OAUTH_CLIENT_ID = "_PF2b5B23VyiuqJpCOEq";
@@ -43,6 +46,11 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.naveroauthlogin_sample_main);
 
+        RelativeLayout = findViewById(R.id.relative);
+        Drawable draw = getResources().getDrawable(R.drawable.main);
+        draw.setAlpha(70);
+        RelativeLayout.setBackgroundDrawable(draw);
+
         mContext = this;
 
         initData();
@@ -58,7 +66,7 @@ public class Login extends Activity {
 
     private void initView() {
 
-        mOAuthLoginButton = findViewById(R.id.buttonOAuthLoginImg);
+        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
     }
 
@@ -68,6 +76,10 @@ public class Login extends Activity {
         public void run(boolean success) {
             if (success) {
                 new Login.RequestApiTask().execute();
+                Intent intent = new Intent(getApplicationContext(), Main.class);
+                intent.putExtra("id",personalid);
+                startActivity(intent);
+                finish();
             } else {
                 String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
                 String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);
@@ -77,7 +89,7 @@ public class Login extends Activity {
 
     };
 
-    private class RequestApiTask extends AsyncTask<Void, Void, String> {
+    private static class RequestApiTask extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
