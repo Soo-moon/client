@@ -20,6 +20,7 @@ public class Main extends AppCompatActivity {
     public static UserData userData = new UserData();
     public static ArrayList<Player> myteam = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

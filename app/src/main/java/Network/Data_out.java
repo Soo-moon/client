@@ -1,14 +1,11 @@
-package DnM.client;
+package Network;
 
 import android.util.Log;
 
-import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.util.ArrayList;
+
 
 import shared.Obj;
-import shared.Player;
 
 public class Data_out extends Thread {
 

@@ -18,9 +18,8 @@ import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import DnM.client.Loading;
 import DnM.client.Main;
-import DnM.client.Network;
+import Network.Network;
 import DnM.client.R;
 import shared.UserData;
 
@@ -40,6 +39,7 @@ public class Login extends Activity {
     public static String personalid  = null;
 
     public static UserData userData = new UserData();
+    public static Network network = new Network();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class Login extends Activity {
 
                 Intent intent = new Intent(mContext, Main.class);
                 Log.d("test","time");
-                final Network network = new Network();
+
                 network.start();
                 try {
                     network.join();

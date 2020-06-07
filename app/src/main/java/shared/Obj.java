@@ -17,17 +17,17 @@ public class Obj implements Serializable {
     public Obj(Object object, int code) {
         this.object = object;
         this.code = code;
-        //code 2
+
         if (object instanceof ArrayList)
             arrayList = (ArrayList<Player>) object;
-        //code 1
+
         else if (object instanceof String)
             Message = (String) object;
-        //code 0
+
         else if(object instanceof UserData)
             userData = (UserData) object;
     }
-    
+
     public UserData getUserData() {return userData;}
     
     public ArrayList<Player> getarray() {return arrayList;}
