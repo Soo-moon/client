@@ -24,19 +24,4 @@ public class Player implements Serializable {
         this.a=a;
     }
 
-    public int stat(){
-        return power+Condition+speed+health+Control+ballspeed;
-    }
-
-    public int astat(){
-        return power+Condition+speed;
-    }
-
-    public  int dstat(){
-        return health+Control+ballspeed;
-    }
-    @Override
-    public String toString(){
-        return teamname+"//"+season+"//"+name;
-    }
 }

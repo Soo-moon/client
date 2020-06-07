@@ -9,47 +9,34 @@ public class Obj implements Serializable {
 
     ArrayList<Player> arrayList = null;
     Object object;
-    String Message = null;
+    String Message = "";
     int code;
     String id;
+    UserData userData;
 
     public Obj(Object object, int code) {
         this.object = object;
         this.code = code;
-
+        //code 2
         if (object instanceof ArrayList)
             arrayList = (ArrayList<Player>) object;
-
-        if (object instanceof String)
+        //code 1
+        else if (object instanceof String)
             Message = (String) object;
+        //code 0
+        else if(object instanceof UserData)
+            userData = (UserData) object;
     }
+    
+    public UserData getUserData() {return userData;}
+    
+    public ArrayList<Player> getarray() {return arrayList;}
+  
+    public String getstr() {return Message;}
 
-    public Obj() {
-    }
+    public String getid() { return userData.getid();}
 
-    //code == 2
-    public ArrayList<Player> getarray() {
-        if (arrayList != null)
-            return arrayList;
-        else
-            return null;
-    }
-
-    //code == 1
-    public String getstr() {
-        if (Message != null)
-            return Message;
-        else
-            return "";
-    }
-
-    public String getid() {
-        return Message;
-    }
-
-    public int getcode() {
-        return code;
-    }
+    public int getcode() {return code;}
 
 
 }
