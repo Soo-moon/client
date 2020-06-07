@@ -9,12 +9,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
+import shared.Player;
+import shared.UserData;
+
 import static Naver.Login.personalid;
 
 public class Main extends AppCompatActivity {
 
     private RelativeLayout RelativeLayout;
 
+    public static UserData userData = new UserData();
+    public static ArrayList<Player> myteam = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +50,7 @@ public class Main extends AppCompatActivity {
     }
 
     public void vs(View view) {
-        Intent intent = new Intent(getApplicationContext(), Client.class);
-        intent.putExtra("id",personalid);
+        Intent intent = new Intent(getApplicationContext(), vs.class);
         startActivity(intent);
     }
 }

@@ -25,7 +25,6 @@ public class Data_out extends Thread {
             outputStream.writeObject(object);
             outputStream.flush();
 
-
         } catch (Exception e) {
             Log.d("error", "Send error " + e.getClass().getName() + ": " + e.getMessage());
         }

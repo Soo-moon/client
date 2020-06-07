@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.nhn.android.naverlogin.OAuthLogin;
@@ -15,9 +16,11 @@ import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import DnM.client.Loading;
 import DnM.client.Main;
+import DnM.client.Network;
 import DnM.client.R;
-import DnM.client.Shop;
+import shared.UserData;
 
 
 public class Login extends Activity {
@@ -29,9 +32,11 @@ public class Login extends Activity {
     private static String OAUTH_CLIENT_NAME = "네이버 아이디로 로그인";
 
     private static OAuthLogin mOAuthLoginInstance;
-    private static Context mContext;
+    public static Context mContext;
 
     public static String personalid  = null;
+
+    public static UserData userData = new UserData();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +58,7 @@ public class Login extends Activity {
 
     private void initView() {
 
-        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
+        mOAuthLoginButton = findViewById(R.id.buttonOAuthLoginImg);
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
     }
 
@@ -63,10 +68,6 @@ public class Login extends Activity {
         public void run(boolean success) {
             if (success) {
                 new Login.RequestApiTask().execute();
-                Intent intent = new Intent(getApplicationContext(), Main.class);
-                intent.putExtra("id",personalid);
-                startActivity(intent);
-                finish();
             } else {
                 String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
                 String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);
@@ -76,7 +77,7 @@ public class Login extends Activity {
 
     };
 
-    private static class RequestApiTask extends AsyncTask<Void, Void, String> {
+    private class RequestApiTask extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... params) {
@@ -87,12 +88,28 @@ public class Login extends Activity {
 
         protected void onPostExecute(String content) {
             try {
+
                 JSONObject jsonObject =new JSONObject(content);
                 JSONObject response = jsonObject.getJSONObject("response");
                 String t=response.getString("email");
                 personalid = t.substring(0,t.lastIndexOf("@"));
+                Login.userData.setid(personalid);
+                Log.d("test",personalid);
+
+                Intent intent = new Intent(mContext, Main.class);
+                Log.d("test","time");
+                final Network network = new Network();
+                network.start();
+                try {
+                    network.join();
+
+                } catch (InterruptedException e) {
+                    Log.d("error", "접속 오류" + e.getClass().getName() + ": " + e.getMessage());
+                }
 
 
+                startActivity(intent);
+                finish();
 
             } catch (JSONException e) {
                 e.printStackTrace();
