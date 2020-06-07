@@ -21,9 +21,8 @@
         android:fontFamily="@font/mapo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="검색"
         android:layout_alignParentRight="true"
-        android:background="@drawable/border"
+        android:background="@drawable/searchbtn"
         />
 
     <Button
@@ -122,9 +121,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/border"
+        android:background="@drawable/buybtn1"
         android:onClick="shop_buy"
-        android:text="구매"/>
+        />
 
 
     <Button

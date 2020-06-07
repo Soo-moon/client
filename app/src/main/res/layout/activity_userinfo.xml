@@ -7,13 +7,14 @@
 
     <Button
         android:id="@+id/button"
+        android:background="@drawable/profilebtn"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:onClick="userinfo_profilebtn"
         android:layout_below="@+id/userinfo_imageView"
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/mapo"
-        android:text="프로필 사진 변경" />
+/>
 
     <Button
         android:layout_width="wrap_content"
@@ -79,7 +80,7 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:background="@drawable/border"
         android:layout_alignParentBottom="true"/>
 

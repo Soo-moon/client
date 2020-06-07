@@ -11,7 +11,7 @@
         android:onClick="reinforce_mycard"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:text="내 카드" />
+        android:background="@drawable/mycardbtn" />
 
     <Button
         android:id="@+id/reinforce_exit"
