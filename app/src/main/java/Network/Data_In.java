@@ -6,6 +6,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import DnM.client.BuyorSell;
 import DnM.client.Main;
 import DnM.client.Shop;
 import shared.Obj;
@@ -47,7 +48,7 @@ public class Data_In extends Thread {
                         break;
 
                     case 3:
-                        Shop.SearchData = obj.getarray();
+                        BuyorSell.SearchData = obj.getarray();
                         break;
                 }
 

@@ -38,7 +38,7 @@ public class Network extends Thread {
         }
     }
 
-    public void Send(Obj object){
+    public static void Send(Obj object){
         Data_out data_out = new Data_out(oout, object);
         data_out.start();
     }

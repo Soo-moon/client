@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import shared.Player;
 
 public class Shop extends AppCompatActivity {
-    public static ArrayList<Player> SearchData = new ArrayList<>();
+
 
 private RelativeLayout RelativeLayout;
     @Override

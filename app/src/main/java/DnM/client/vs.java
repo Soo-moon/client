@@ -3,10 +3,11 @@ package DnM.client;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.io.ObjectInputStream;
+
 import java.io.ObjectOutputStream;
 
 import Network.Network;
+import Network.Data_out;
 
 
 public class vs extends AppCompatActivity {
@@ -17,7 +18,8 @@ public class vs extends AppCompatActivity {
         setContentView(R.layout.activity_vs);
 
         ObjectOutputStream out = Network.oout;
-        ObjectInputStream in = Network.oin;
+
+
 
 
     }
