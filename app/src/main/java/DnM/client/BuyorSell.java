@@ -42,6 +42,8 @@ public class BuyorSell extends AppCompatActivity {
     EditText editText;
     int position1 = 0;
 
+
+
     public static int id_arr[];
     public static TextView CountView = null;
     public static ImageButton NextButton = null;
@@ -60,6 +62,7 @@ public class BuyorSell extends AppCompatActivity {
         NextButton = findViewById(R.id.shop_next);
         BackButton = findViewById(R.id.shop_back);
 
+        mContext = this;
 
         RelativeLayout = findViewById(R.id.relative);
         editText = findViewById(R.id.shop_search_text);
