@@ -214,8 +214,7 @@ public class BuyorSell extends AppCompatActivity {
         String position_type = player.getType();
         int num = new Random().nextInt(3);
         // drawable 데이터 비교 코드 작성
-        Drawable drawable = view.getBackground();
-        if (drawable == null){
+        Drawable drawable = null;
             switch (position_type) {
                 case "투수":
                     switch (num) {
@@ -254,7 +253,7 @@ public class BuyorSell extends AppCompatActivity {
                     }
                     break;
             }
-        }
+
         return drawable;
     }
 
