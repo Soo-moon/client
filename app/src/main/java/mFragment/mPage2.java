@@ -36,7 +36,7 @@ public class mPage2 extends Fragment {
         for (int i = 9; i < 18; i++) {
             Button btn = view.findViewById(id_arr[i-9]);
             btn.setVisibility(View.VISIBLE);
-            btn.setBackground(BuyorSell.ImageSet(i,btn));
+            btn.setBackground(BuyorSell.ImageSet(i));
         }
         return view;
     }

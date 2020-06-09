@@ -209,7 +209,7 @@ public class BuyorSell extends AppCompatActivity {
         }
     }
 
-    public static Drawable ImageSet(int index,View view) {
+    public static Drawable ImageSet(int index) {
         Player player = SearchData.get(index);
         String position_type = player.getType();
         int num = new Random().nextInt(3);
