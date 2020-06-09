@@ -7,10 +7,15 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -213,8 +218,10 @@ public class BuyorSell extends AppCompatActivity {
     }
 
     public static Drawable ImageSet(int index) {
+
         Player player = SearchData.get(index);
         String position_type = player.getType();
+
         int num = new Random().nextInt(3);
         // drawable 데이터 비교 코드 작성
         Drawable drawable = null;
@@ -272,6 +279,8 @@ public class BuyorSell extends AppCompatActivity {
         BackButton.setVisibility(View.INVISIBLE);
         CountView.setText("1/1");
     }
+
+
 
 
 }

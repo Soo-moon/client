@@ -28,7 +28,7 @@ import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 public class Reinforce extends Activity {
     private RelativeLayout RelativeLayout;
-ImageView imageView;
+    ImageView imageView;
     private Button btnClosePopup;
     private Button btnCreatePopup;
     private PopupWindow pwindo;
@@ -100,6 +100,7 @@ ImageView imageView;
             imageView = layout.findViewById(R.id.gif_image);
             GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
             Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
+
 
         } catch (Exception e) {
             e.printStackTrace();

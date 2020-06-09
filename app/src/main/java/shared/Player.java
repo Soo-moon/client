@@ -6,41 +6,55 @@ public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    String teamname,name,position,position_type;
-    int season,power,Condition,speed,health,Control,ballspeed;
+    String teamname, name, position, position_type;
+    int season, power, Condition, speed, health, Control, ballspeed;
 
 
-    public Player(String teamname , String name , String position ,int season , int power ,int Condition ,int speed , int health, int Control ,int ballspeed,String position_type ){
+    public Player(String teamname, String name, String position, int season, int power, int Condition, int speed, int health, int Control, int ballspeed, String position_type) {
         this.teamname = teamname;
         this.name = name;
-        this.position=position;
-        this.season=season;
-        this.power=power;
-        this.Condition=Condition;
-        this.speed=speed;
-        this.health=health;
-        this.Control=Control;
-        this.ballspeed=ballspeed;
-        this.position_type=position_type;
+        this.position = position;
+        this.season = season;
+        this.power = power;
+        this.Condition = Condition;
+        this.speed = speed;
+        this.health = health;
+        this.Control = Control;
+        this.ballspeed = ballspeed;
+        this.position_type = position_type;
     }
 
-    public int stat(){
-        return power+Condition+speed+health+Control+ballspeed;
+    public int stat() {
+        return power + Condition + speed + health + Control + ballspeed;
     }
 
-    public int astat(){
-        return power+Condition+speed;
+    public int astat() {
+        return power + Condition + speed;
     }
 
-    public  int dstat(){
-        return health+Control+ballspeed;
+    public int dstat() {
+        return health + Control + ballspeed;
     }
 
-    public String getType(){return position_type;}
+    public String getType() {
+        return position_type;
+    }
+
+    public void Success() {
+        if (position_type.equals("타자") || position_type.equals("포수")) {
+            power++;
+            Condition++;
+            speed++;
+        } else {
+            health++;
+            Control++;
+            ballspeed++;
+        }
+    }
 
 
     @Override
-    public String toString(){
-        return teamname+"//"+season+"//"+name;
+    public String toString() {
+        return teamname + "//" + season + "//" + name;
     }
 }
