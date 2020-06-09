@@ -17,9 +17,8 @@ public class vs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vs);
 
+
         ObjectOutputStream out = Network.oout;
-
-
 
 
     }

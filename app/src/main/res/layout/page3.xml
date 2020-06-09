@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlankFragment">
+
+    <Button
+        android:id="@+id/shop_search_image18"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/shop_search_image19"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="150dp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/shop_search_image20"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="270dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/shop_search_image21"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="280dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/shop_search_image22"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="150dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/shop_search_image23"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginRight="30dp"
+        android:visibility="invisible"/>
+
+</FrameLayout>

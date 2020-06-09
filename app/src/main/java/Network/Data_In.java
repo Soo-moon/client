@@ -33,7 +33,9 @@ public class Data_In extends Thread {
                 switch (code) {
 
                     case 0:
+                        Main.myteam = obj.getUserData().getTeamdata();
                         Main.userData = obj.getUserData();
+                        Log.d("test",  "UserData 수신");
                         break;
 
                     case 1:
@@ -44,12 +46,15 @@ public class Data_In extends Thread {
                         break;
 
                     case 2:
-                        Main.myteam = obj.getarray();
+                        Main.myteam = obj.getUserData().getTeamdata();
                         break;
 
                     case 3:
                         BuyorSell.SearchData = obj.getarray();
+                        Log.d("test", String.valueOf(obj.getarray().size()));
+
                         break;
+
                 }
 
             }

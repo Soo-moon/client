@@ -109,7 +109,7 @@ public class Login extends Activity {
                 Log.d("test",personalid);
 
                 Intent intent = new Intent(mContext, Main.class);
-                Log.d("test","time");
+
 
                 network.start();
                 try {

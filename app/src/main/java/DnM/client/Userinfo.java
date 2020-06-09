@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -33,8 +34,11 @@ public class Userinfo extends AppCompatActivity {
         RelativeLayout = findViewById(R.id.relative);
         listView = findViewById(R.id.userinfo_listview);
 
-        /*ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam) ;
-        listView.setAdapter(adapter);*/
+
+        //내 정보 <- 팀데이터 리스트뷰에 담기
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam) ;
+        listView.setAdapter(adapter);
+        Log.d("test",  "리스트뷰");
 
         Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);

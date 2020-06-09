@@ -15,7 +15,9 @@
         android:ems="10"
         android:background="@drawable/border"
         android:layout_toLeftOf="@+id/shop_search_button"
-        android:hint="검색하세요" />
+        android:hint="검색하세요"
+        android:textAllCaps="true"
+        />
 
     <Button
         android:id="@+id/shop_search_button"
@@ -28,95 +30,15 @@
         android:background="@drawable/searchbtn"
         />
 
-    <Button
-        android:id="@+id/shop_search_image"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="30dp"
-        android:onClick="image1"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:background="@drawable/xkwk1" />
+    <FrameLayout
+        android:id="@+id/shop_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
 
-    <Button
-        android:id="@+id/shop_search_image2"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/xkwk2" />
+    </FrameLayout>
 
 
-    <Button
-        android:id="@+id/shop_search_image3"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/xkwk3" />
-
-
-    <Button
-        android:id="@+id/shop_search_image4"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/vhtn1" />
-
-    <Button
-        android:id="@+id/shop_search_image5"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/vhtn2" />
-
-    <Button
-        android:id="@+id/shop_search_image6"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="400dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/vhtn3" />
-
-    <Button
-        android:id="@+id/shop_search_image7"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/xntn1" />
-
-    <Button
-        android:id="@+id/shop_search_image8"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="230dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/xkwk2" />
-
-
-    <Button
-        android:id="@+id/shop_search_image9"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="230dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/xntn3" />
 
     <Button
         android:id="@+id/shop_buy"
@@ -142,24 +64,30 @@
         android:onClick="shop_exit" />
 
     <ImageButton
+        android:id="@+id/shop_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
         android:layout_toRightOf="@+id/count"
         android:background="#00ff0000"
         android:onClick="next"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:visibility="invisible"/>
 
 
     <ImageButton
+        android:layout_alignParentBottom="true"
+        android:id="@+id/shop_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
+        android:layout_marginBottom="70dp"
         android:background="#00ff0000"
         android:layout_toLeftOf="@+id/count"
-        android:onClick="previous"
+        android:onClick="shop_back"
         android:rotation="180"
-        app:srcCompat="@android:drawable/ic_media_play" />
+        app:srcCompat="@android:drawable/ic_media_play"
+        android:visibility="invisible"/>
 
     <Spinner
         android:id="@+id/spinner"
@@ -174,15 +102,17 @@
     </Spinner>
 
     <TextView
+        android:layout_alignParentBottom="true"
         android:id="@+id/count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1/2"
+        android:text="1/1"
         android:textSize="20dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginBottom="70dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        />
 
 
 </RelativeLayout>
