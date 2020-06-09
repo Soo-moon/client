@@ -4,6 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BlankFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
     <Button
         android:id="@+id/shop_search_image18"
@@ -31,7 +38,7 @@
         android:layout_height="150dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="270dp"
+       android:layout_marginRight="30dp"
         android:visibility="invisible"/>
 
     <Button
@@ -62,5 +69,6 @@
         android:layout_marginLeft="270dp"
         android:layout_marginRight="30dp"
         android:visibility="invisible"/>
-
+    </RelativeLayout>
+</ScrollView>
 </FrameLayout>

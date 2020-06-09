@@ -16,7 +16,7 @@
         android:background="@drawable/border"
         android:layout_toLeftOf="@+id/shop_search_button"
         android:hint="검색하세요"
-        android:textAllCaps="true"
+        android:inputType="textMultiLine|textNoSuggestions"
         />
 
     <Button
