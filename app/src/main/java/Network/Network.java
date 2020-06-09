@@ -22,6 +22,7 @@ public class Network extends Thread {
     public static ObjectInputStream oin;
 
     String localhost = "192.168.55.133";
+    String serverip ="222.236.118.4";
 
     //소켓 설정
     public void run() {
