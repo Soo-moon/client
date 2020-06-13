@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -44,6 +45,8 @@ public class Login extends Activity {
     public static UserData userData = new UserData();
     public static Network network = new Network();
 
+    private static MediaPlayer mp;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +54,20 @@ public class Login extends Activity {
 
         ImageView load = findViewById(R.id.gif_image);
         GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(load);
-        Glide.with(this).load(R.drawable.maingif).into(gifImage);
+        Glide.with(this).load(R.drawable.main2).into(gifImage);
 
 
+        mp = MediaPlayer.create(this, R.raw.radio);
+        mp.setLooping(true);
+        mp.start();
         mContext = this;
 
         initData();
         initView();
+
+
     }
+
 
     private void initData() {
         mOAuthLoginInstance = OAuthLogin.getInstance();
