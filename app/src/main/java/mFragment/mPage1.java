@@ -121,5 +121,6 @@ public class mPage1 extends Fragment {
 
         //액티비티(팝업) 닫기
         finish();
-    }*/
+    }
+    */
 }
