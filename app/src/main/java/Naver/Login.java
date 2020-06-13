@@ -62,6 +62,7 @@ public class Login extends Activity {
         mp.start();
         mContext = this;
 
+
         initData();
         initView();
 
@@ -87,6 +88,7 @@ public class Login extends Activity {
         @Override
         public void run(boolean success) {
             if (success) {
+                mp.stop();
                 new Login.RequestApiTask().execute();
                 Intent intent = new Intent(getApplicationContext(), Main.class);
                 intent.putExtra("id",personalid);
