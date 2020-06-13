@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
@@ -46,10 +49,10 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.naveroauthlogin_sample_main);
 
-        RelativeLayout = findViewById(R.id.relative);
-        Drawable draw = getResources().getDrawable(R.drawable.main);
-        draw.setAlpha(70);
-        RelativeLayout.setBackgroundDrawable(draw);
+        ImageView load = findViewById(R.id.gif_image);
+        GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(load);
+        Glide.with(this).load(R.drawable.maingif).into(gifImage);
+
 
         mContext = this;
 

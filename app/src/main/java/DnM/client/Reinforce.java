@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -17,14 +18,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
+
+import java.util.Random;
 
 public class Reinforce extends Activity {
     private RelativeLayout RelativeLayout;
@@ -33,6 +38,7 @@ public class Reinforce extends Activity {
     private Button btnCreatePopup;
     private PopupWindow pwindo;
     private int mWidthPixels, mHeightPixels;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,12 @@ public class Reinforce extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_reinforce);
         RelativeLayout = findViewById(R.id.relative);
+        listView = findViewById(R.id.reinforce_listview);
+
+        //내 정보 <- 팀데이터 리스트뷰에 담기
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam) ;
+        listView.setAdapter(adapter);
+        Log.d("test",  "리스트뷰");
 
         Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);
@@ -97,10 +109,19 @@ public class Reinforce extends Activity {
             btnClosePopup = layout.findViewById(R.id.btn_close);
             btnClosePopup.setOnClickListener(cancel_button_click_listner);
 
+            int num = new Random().nextInt(2);
+
             imageView = layout.findViewById(R.id.gif_image);
             GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
-            Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
+            switch (num) {
+                case 0 :
+                Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
+                break;
 
+                case 1 :
+                    Glide.with(this).load(R.drawable.reinforcefail).into(gifImage);
+                    break;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

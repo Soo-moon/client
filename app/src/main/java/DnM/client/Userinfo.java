@@ -9,12 +9,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 import java.io.InputStream;
 
@@ -26,6 +30,8 @@ public class Userinfo extends AppCompatActivity {
     ImageView imageview;
     Button button;
     ListView listView;
+    EditText editText;
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,5 +87,12 @@ public class Userinfo extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Main.class);
         startActivity(intent);
     }
+    public void userinfo_edittextbtn(View view){
+        editText = findViewById(R.id.userinfo_edittext);
+        textView = findViewById(R.id.userinfo_textview1);
+        String str =  editText.getText().toString();
 
+        textView.setText(str);
+
+    }
 }

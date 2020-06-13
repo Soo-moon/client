@@ -56,7 +56,7 @@ public class mPage1 extends Fragment {
         return view;
     }
 
-    public void Card_click(View view){
+/*  public void Card_click(View view){
         WindowManager w = getWindowManager();
         Display d = w.getDefaultDisplay();
         DisplayMetrics metrics = new DisplayMetrics();
@@ -120,5 +120,5 @@ public class mPage1 extends Fragment {
 
         //액티비티(팝업) 닫기
         finish();
-    }
+    }*/
 }

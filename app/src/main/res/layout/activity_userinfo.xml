@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/relative">
 
+
     <Button
         android:id="@+id/button"
         android:background="@drawable/profilebtn"
@@ -73,9 +74,31 @@
         android:cursorVisible="true"
         android:fontFamily="@font/mapo"
         android:ems="10"
-        android:inputType="textMultiLine|textNoSuggestions">
+        android:inputType="textMultiLine|textNoSuggestions"/>
+    <TextView
+        android:id="@+id/userinfo_textview1"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/userinfo_textview"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:gravity="left"
+        android:cursorVisible="true"
+        android:fontFamily="@font/mapo"
+        android:ems="10"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:visibility="visible"/>
 
-    </EditText>
+    <Button
+        android:id="@+id/userinfo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userinfo_edittext"
+        android:layout_centerHorizontal="true"
+        android:onClick="userinfo_edittextbtn"
+        android:fontFamily="@font/mapo"
+        android:background="@drawable/edit"
+        />
 
 
     <ListView
@@ -84,6 +107,8 @@
         android:layout_height="150dp"
         android:background="@drawable/border"
         android:layout_alignParentBottom="true"/>
+
+
 
 
 </RelativeLayout>
