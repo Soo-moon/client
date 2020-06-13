@@ -38,8 +38,9 @@ public class mPage1 extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        SearchPlayerList = BuyorSell.SearchData;
+
         View view = inflater.inflate(R.layout.page , container , false);
+        SearchPlayerList = BuyorSell.SearchData;
 
         int id_arr[] = new int[]{R.id.shop_search_image, R.id.shop_search_image1, R.id.shop_search_image2, R.id.shop_search_image3
                 , R.id.shop_search_image4, R.id.shop_search_image5, R.id.shop_search_image6, R.id.shop_search_image7,

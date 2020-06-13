@@ -26,33 +26,35 @@ public class Data_In extends Thread {
             while (end) {
                 Log.d("test", "대기");
                 Obj obj = (Obj) oin.readObject();
-                Log.d("test", "수신");
 
                 int code = obj.getcode();
 
                 switch (code) {
-
-                    case 0:
+                    //내 정보 초기화
+                    case 100:
                         Main.myteam = obj.getUserData().getTeamdata();
                         Main.userData = obj.getUserData();
-                        Log.d("test",  "UserData 수신");
+                        Log.d("test", "UserData 수신");
                         break;
-
-                    case 1:
-                        final String message = obj.getstr();
-                        if (message.equals("/end")) end = false;
-                        Log.d("test",  message);
-
+                    //서버 메세지
+                    case 101:
+                        String message = obj.getstr();
+                        Log.d("test", message);
                         break;
-
-                    case 2:
+                    // 내 팀 변경
+                    case 102:
                         Main.myteam = obj.getUserData().getTeamdata();
+                        Log.d("test", "myteam 변경");
                         break;
-
-                    case 3:
+                    //쿼리 검색 수신
+                    case 103:
                         BuyorSell.SearchData = obj.getarray();
                         Log.d("test", String.valueOf(obj.getarray().size()));
-
+                        break;
+                    //통신 종료
+                    case 999:
+                        Log.d("test","종료 패킷");
+                        end = false;
                         break;
 
                 }
@@ -62,6 +64,7 @@ public class Data_In extends Thread {
             Log.d("conn", "in " + e.toString());
         } finally {
             try {
+                Log.d("test", "종료");
                 oin.close();
             } catch (IOException e) {
                 e.printStackTrace();

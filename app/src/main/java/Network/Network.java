@@ -28,7 +28,7 @@ public class Network extends Thread {
     public void run() {
         try {
 
-            socket = new Socket("222.236.118.4", 5550);
+            socket = new Socket(localhost, 5550);
             oout = new ObjectOutputStream(socket.getOutputStream());
             Send(new Obj(Login.userData,0));
             oin = new ObjectInputStream(socket.getInputStream());
