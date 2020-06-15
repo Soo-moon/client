@@ -28,11 +28,9 @@ import DnM.client.R;
 import DnM.client.Reinforce;
 import shared.Player;
 
-public class mPage1 extends Fragment  {
+public class mPage1 extends Fragment {
 
     static ArrayList<Player> SearchPlayerList = new ArrayList<>();
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -56,9 +54,6 @@ public class mPage1 extends Fragment  {
                 btn.setOnClickListener(new Click(BuyorSell.playerget(i)));
             }
         }
-
         return view;
     }
-
-
 }
