@@ -9,6 +9,7 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -18,6 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,10 +29,15 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 
+import androidx.annotation.RequiresApi;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
+import java.util.ArrayList;
 import java.util.Random;
+
+import shared.Player;
 
 public class Reinforce extends Activity {
     private RelativeLayout RelativeLayout;
@@ -39,6 +47,11 @@ public class Reinforce extends Activity {
     private PopupWindow pwindo;
     private int mWidthPixels, mHeightPixels;
     ListView listView;
+    ListView playerinfoview;
+
+    ArrayList<String> Playerarr;
+    Button image;
+    Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +62,24 @@ public class Reinforce extends Activity {
         RelativeLayout = findViewById(R.id.relative);
         listView = findViewById(R.id.reinforce_listview);
 
+        image = findViewById(R.id.reinforce_image);
+
+        playerinfoview = findViewById(R.id.playerinfoview);
+
         //내 정보 <- 팀데이터 리스트뷰에 담기
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam) ;
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam);
         listView.setAdapter(adapter);
-        Log.d("test",  "리스트뷰");
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                player = (Player) parent.getItemAtPosition(position);
+                image.setBackground(imageset());
+                runOnUiThread(reinforce);
+
+            }
+        });
+        Log.d("test", "리스트뷰");
 
         Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);
@@ -88,6 +115,7 @@ public class Reinforce extends Activity {
         });
 
     }
+
     //내정보 이동
     public void reinforce_mycard(View view) {
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
@@ -95,7 +123,7 @@ public class Reinforce extends Activity {
     }
 
     //메인 으로 이동
-    public void reinforce_exit(View view){
+    public void reinforce_exit(View view) {
         Intent intent = new Intent(getApplicationContext(), Main.class);
         startActivity(intent);
     }
@@ -115,13 +143,33 @@ public class Reinforce extends Activity {
 
             imageView = layout.findViewById(R.id.gif_image);
             GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
+            Handler mHandler = new Handler();
             switch (num) {
-                case 0 :
-                Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
-                break;
+                //성공 처리
+                case 0:
+                    Glide.with(this).load(R.drawable.reinforcesucces).into(gifImage);
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Main.myteam.remove(player);
+                            player= player.Success(player);
+                            Main.myteam.add(player);
+                            pwindo.dismiss();
+                            runOnUiThread(reinforce);
+                        }
+                    }, 1500);
+                    break;
 
-                case 1 :
+                //실패처리
+                case 1:
                     Glide.with(this).load(R.drawable.reinforcefail).into(gifImage);
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            pwindo.dismiss();
+                        }
+                    }, 1500);
                     break;
             }
 
@@ -145,6 +193,65 @@ public class Reinforce extends Activity {
 
         //액티비티(팝업) 닫기
         finish();
+    }
+
+    private Runnable reinforce = new Runnable() {
+        @Override
+        public void run() {
+            Playerarr = new ArrayList<>();
+            Playerarr = player.addlist(Playerarr);
+            ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, Playerarr);
+            playerinfoview.setAdapter(arrayAdapter);
+        }
+    };
+
+    private Drawable imageset(){
+        Drawable drawable = null;
+        String position_type = player.getType();
+
+        int num = new Random().nextInt(3);
+        // drawable 데이터 비교 코드 작성
+
+        switch (position_type) {
+            case "투수":
+                switch (num) {
+                    case 0:
+                        drawable = this.getResources().getDrawable(R.drawable.xntn1);
+                        break;
+                    case 1:
+                        drawable = this.getResources().getDrawable(R.drawable.xntn2);
+                        break;
+                    case 2:
+                        drawable = this.getResources().getDrawable(R.drawable.xntn3);
+                }
+                break;
+            case "포수":
+                switch (num) {
+                    case 0:
+                        drawable = this.getResources().getDrawable(R.drawable.vhtn1);
+                        break;
+                    case 1:
+                        drawable = this.getResources().getDrawable(R.drawable.vhtn2);
+                        break;
+                    case 2:
+                        drawable = this.getResources().getDrawable(R.drawable.vhtn3);
+                }
+                break;
+            case "타자":
+                switch (num) {
+                    case 0:
+                        drawable = this.getResources().getDrawable(R.drawable.xkwk1);
+                        break;
+                    case 1:
+                        drawable = this.getResources().getDrawable(R.drawable.xkwk2);
+                        break;
+                    case 2:
+                        drawable = this.getResources().getDrawable(R.drawable.xkwk3);
+                }
+                break;
+        }
+
+        return drawable;
     }
 
 

@@ -214,7 +214,8 @@ public class BuyorSell extends AppCompatActivity {
         if (SearchData.size() == 0){
             System.out.println("없음");
         }
-        Player player = SearchData.get(index);
+        Player player= SearchData.get(index);
+
         String position_type = player.getType();
 
         int num = new Random().nextInt(3);

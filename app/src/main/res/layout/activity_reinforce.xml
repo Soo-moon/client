@@ -58,6 +58,7 @@
         android:background="@drawable/border" />
 
     <ListView
+        android:id="@+id/playerinfoview"
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:layout_alignParentStart="true"

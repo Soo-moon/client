@@ -4,8 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Player implements Serializable , Parcelable {
+public class Player implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -43,31 +44,39 @@ public class Player implements Serializable , Parcelable {
         return position_type;
     }
 
-    public void Success() {
-        if (position_type.equals("타자") || position_type.equals("포수")) {
-            power++;
-            Condition++;
-            speed++;
+    public Player Success(Player player) {
+        if (player.position_type.equals("타자") || player.position_type.equals("포수")) {
+            player.power++;
+            player.Condition++;
+            player.speed++;
         } else {
-            health++;
-            Control++;
-            ballspeed++;
+            player.health++;
+            player.Control++;
+            player.ballspeed++;
         }
+        return player;
+    }
+
+    public ArrayList addlist(ArrayList arrayList){
+        arrayList.add("팀: "+this.teamname);
+        arrayList.add("시즌: "+this.season);
+        arrayList.add("이름: "+this.name);
+        if (this.position_type.equals("투수")){
+            arrayList.add("체력: "+ this.health);
+            arrayList.add("제구: "+this.Control);
+            arrayList.add("구속: "+this.ballspeed);
+        }
+        else{
+            arrayList.add("파워: "+ this.power);
+            arrayList.add("컨디션: "+this.Condition);
+            arrayList.add("속도: "+this.speed);
+        }
+        return arrayList;
     }
 
 
     @Override
     public String toString() {
         return teamname + "//" + season + "//" + name;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
     }
 }
