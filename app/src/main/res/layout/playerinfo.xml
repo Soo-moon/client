@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    android:padding="10sp">
+
+    <!-- 타이틀바 -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff7a00"
+        android:fontFamily="@font/mapo"
+        android:gravity="center"
+        android:paddingTop="@dimen/browser_actions_context_menu_min_padding"
+        android:paddingBottom="@dimen/browser_actions_context_menu_min_padding"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/name"
+        android:layout_above="@+id/row"
+        android:contentDescription="TODO" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/row"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/Dia_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:fontFamily="@font/mapo"
+                android:padding="16dp"
+                android:text="구매"
+                android:textColor="#ff7a00"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/Dia_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:fontFamily="@font/mapo"
+                android:padding="16dp"
+                android:onClick="Dialog_close"
+                android:text="닫기"
+                android:textColor="#ff7a00"
+                android:textSize="15sp" />
+        </TableRow>
+    </TableLayout>
+
+    <!--// 닫기 버튼 -->
+</RelativeLayout>

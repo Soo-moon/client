@@ -1,13 +1,16 @@
 package shared;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
-public class Player implements Serializable {
+public class Player implements Serializable , Parcelable {
 
     private static final long serialVersionUID = 1L;
 
-    String teamname, name, position, position_type;
-    int season, power, Condition, speed, health, Control, ballspeed;
+    public String teamname, name, position, position_type;
+    public int season, power, Condition, speed, health, Control, ballspeed;
 
 
     public Player(String teamname, String name, String position, int season, int power, int Condition, int speed, int health, int Control, int ballspeed, String position_type) {
@@ -56,5 +59,15 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return teamname + "//" + season + "//" + name;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

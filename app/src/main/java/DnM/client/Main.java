@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+import Network.Network;
+import shared.Obj;
 import shared.Player;
 import shared.UserData;
 
@@ -50,5 +52,14 @@ public class Main extends AppCompatActivity {
     public void vs(View view) {
         Intent intent = new Intent(getApplicationContext(), vs.class);
         startActivity(intent);
+
     }
+
+    @Override
+    protected void onDestroy() {
+        userData.setTeamdata(Main.myteam);
+        Network.Send(new Obj(userData ,2));
+        super.onDestroy();
+    }
+
 }

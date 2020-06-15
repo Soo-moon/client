@@ -88,11 +88,13 @@ public class Reinforce extends Activity {
         });
 
     }
-
+    //내정보 이동
     public void reinforce_mycard(View view) {
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
         startActivity(intent);
     }
+
+    //메인 으로 이동
     public void reinforce_exit(View view){
         Intent intent = new Intent(getApplicationContext(), Main.class);
         startActivity(intent);

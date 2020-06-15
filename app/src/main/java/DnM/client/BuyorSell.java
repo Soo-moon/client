@@ -6,16 +6,10 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Point;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -47,13 +41,13 @@ public class BuyorSell extends AppCompatActivity {
     EditText editText;
     int position1 = 0;
 
-
-
     public static int id_arr[];
     public static TextView CountView = null;
     public static ImageButton NextButton = null;
     public static ImageButton BackButton = null;
     public static Context mContext;
+
+    public static FragmentManager fm;
 
     Fragment fr;
 
@@ -100,6 +94,7 @@ public class BuyorSell extends AppCompatActivity {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(getApplicationContext(), "예를 선택했습니다.", Toast.LENGTH_LONG).show();
+
                         }
                     });
             builder.setNegativeButton("아니오",
@@ -159,8 +154,6 @@ public class BuyorSell extends AppCompatActivity {
     }
 
     public void shop_exit(View view) {
-        Intent intent = new Intent(getApplicationContext(), Main.class);
-        startActivity(intent);
         finish();
     }
 
@@ -218,7 +211,9 @@ public class BuyorSell extends AppCompatActivity {
     }
 
     public static Drawable ImageSet(int index) {
-
+        if (SearchData.size() == 0){
+            System.out.println("없음");
+        }
         Player player = SearchData.get(index);
         String position_type = player.getType();
 
@@ -268,7 +263,7 @@ public class BuyorSell extends AppCompatActivity {
     }
 
     public void SelectPage(Fragment fr) {
-        FragmentManager fm = getFragmentManager();
+        fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.shop_page, fr);
         fragmentTransaction.commit();
@@ -278,6 +273,27 @@ public class BuyorSell extends AppCompatActivity {
         NextButton.setVisibility(View.INVISIBLE);
         BackButton.setVisibility(View.INVISIBLE);
         CountView.setText("1/1");
+    }
+
+    public static String[] Dataset(int index){
+        Player player = SearchData.get(index);
+        String position_type = player.getType();
+        String[] message = new String[2];
+        if(position_type.equals("투수")){
+            message[0] = player.name;
+            message[1] = "체력: "+player.health + "\n제구: "+player.Control + "\n구속: "+player.ballspeed;
+            return message;
+        }
+        else {
+            message[0] = player.name;
+            message[1] = "파워: "+player.power + "\n컨디션: "+player.Condition + "\n속도: "+player.speed;
+            return message;
+        }
+    }
+
+    public static Player playerget(int index){
+        Player player = SearchData.get(index);
+        return player;
     }
 
 

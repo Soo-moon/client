@@ -33,9 +33,12 @@ public class mPage3 extends Fragment {
 
 
         for (int i = 18; i < 24; i++) {
-            Button btn = view.findViewById(id_arr[i-18]);
-            btn.setVisibility(View.VISIBLE);
-            btn.setBackground(BuyorSell.ImageSet(i));
+            if(SearchPlayerList.size() > i){
+                Button btn = view.findViewById(id_arr[i]);
+                btn.setVisibility(View.VISIBLE);
+                btn.setBackground(BuyorSell.ImageSet(i));
+                btn.setOnClickListener(new Click(BuyorSell.playerget(i)));
+            }
         }
         return view;
     }

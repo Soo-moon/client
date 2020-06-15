@@ -90,10 +90,6 @@ public class Login extends Activity {
             if (success) {
                 mp.stop();
                 new Login.RequestApiTask().execute();
-                Intent intent = new Intent(getApplicationContext(), Main.class);
-                intent.putExtra("id",personalid);
-                startActivity(intent);
-                finish();
             } else {
                 String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
                 String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);

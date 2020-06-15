@@ -84,9 +84,9 @@ public class Userinfo extends AppCompatActivity {
         }
     }
     public void userinfo_exit(View view){
-        Intent intent = new Intent(getApplicationContext(), Main.class);
-        startActivity(intent);
+        finish();
     }
+
     public void userinfo_edittextbtn(View view){
         editText = findViewById(R.id.userinfo_edittext);
         textView = findViewById(R.id.userinfo_textview1);
