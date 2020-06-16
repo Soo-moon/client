@@ -63,13 +63,6 @@ public class Main extends AppCompatActivity {
     protected void onDestroy() {
         userData.setTeamdata(Main.myteam);
         Login.network.Send(new Obj(userData ,2));
-        Handler mHandler = new Handler();
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        },1000);
         super.onDestroy();
     }
 

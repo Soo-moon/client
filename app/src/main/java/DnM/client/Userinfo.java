@@ -1,5 +1,6 @@
 package DnM.client;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +17,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+
+import mFragment.Delteam;
 
 public class Userinfo extends AppCompatActivity {
     private RelativeLayout RelativeLayout;
@@ -45,7 +51,9 @@ public class Userinfo extends AppCompatActivity {
 
         //내 정보 <- 팀데이터 리스트뷰에 담기
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam);
+
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new Delteam(Userinfo.this,adapter));
 
 
         Log.d("test", "리스트뷰");
