@@ -91,6 +91,7 @@ public class Userinfo extends AppCompatActivity {
         editText = findViewById(R.id.userinfo_edittext);
         textView = findViewById(R.id.userinfo_textview1);
         String str =  editText.getText().toString();
+        editText.setText("");
 
         textView.setText(str);
 

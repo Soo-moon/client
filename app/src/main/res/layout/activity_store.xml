@@ -39,19 +39,6 @@
     </FrameLayout>
 
 
-
-    <Button
-        android:id="@+id/shop_buy"
-        android:layout_marginBottom="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/buybtn1"
-        android:onClick="shop_buy"
-        />
-
-
     <Button
         android:id="@+id/shop_exit"
         android:layout_width="wrap_content"

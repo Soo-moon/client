@@ -74,6 +74,7 @@
         android:cursorVisible="true"
         android:fontFamily="@font/mapo"
         android:ems="10"
+        android:textSize="20dp"
         android:inputType="textMultiLine|textNoSuggestions"/>
     <TextView
         android:id="@+id/userinfo_textview1"
@@ -86,6 +87,7 @@
         android:cursorVisible="true"
         android:fontFamily="@font/mapo"
         android:ems="10"
+        android:textSize="20dp"
         android:inputType="textMultiLine|textNoSuggestions"
         android:visibility="visible"/>
 

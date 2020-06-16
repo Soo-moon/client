@@ -67,7 +67,7 @@ public class mDialogFragment extends DialogFragment {
             builder.setPositiveButton("예",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "예를 선택했습니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "구매 했습니다.", Toast.LENGTH_LONG).show();
                             Main.myteam.add(player);
                             Log.d("test","myteam 변경");
 
@@ -76,7 +76,7 @@ public class mDialogFragment extends DialogFragment {
             builder.setNegativeButton("아니오",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "아니오를 선택했습니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "취소 했습니다.", Toast.LENGTH_LONG).show();
                         }
                     });
             builder.show();
