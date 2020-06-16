@@ -166,8 +166,11 @@ public class Reinforce extends Activity {
                     mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-
+                            Main.myteam.remove(player);
+                            player = player.Fail(player);
+                            Main.myteam.add(player);
                             pwindo.dismiss();
+                            runOnUiThread(reinforce);
                         }
                     }, 1500);
                     break;

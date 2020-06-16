@@ -110,10 +110,10 @@
 
     <ListView
         android:id="@+id/userinfo_listview"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:background="@drawable/border"
-        android:layout_alignParentBottom="true"/>
+        android:layout_width="match_parent"
+        android:layout_height="127dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/border" />
 
 
 
