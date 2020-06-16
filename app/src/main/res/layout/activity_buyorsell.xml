@@ -5,24 +5,22 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/sell"
-        android:onClick="sell"
+        android:id="@+id/emission"
+        android:onClick="emission"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buy"
+        android:layout_below="@+id/recruitment"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:background="@drawable/sellbtn" />
+        android:background="@drawable/emission" />
 
     <Button
-        android:id="@+id/buy"
-        android:onClick="buy"
+        android:id="@+id/recruitment"
+        android:onClick="recruitment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/buybtn"
-
-
+        android:background="@drawable/recruitment"
         />
 
 </RelativeLayout>

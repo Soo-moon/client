@@ -29,11 +29,11 @@ private RelativeLayout RelativeLayout;
     }
 
 
-    public void buy (View view){
+    public void recruitment (View view){
         Intent intent = new Intent(getApplicationContext(), BuyorSell.class);
         startActivity(intent);
     }
-    public void sell (View view){
+    public void emission (View view){
         Intent intent = new Intent(getApplicationContext(), Userinfo.class);
         startActivity(intent);
     }
