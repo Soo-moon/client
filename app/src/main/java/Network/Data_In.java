@@ -2,13 +2,11 @@ package Network;
 
 import android.util.Log;
 
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
 import DnM.client.BuyorSell;
 import DnM.client.Main;
-import DnM.client.Shop;
 import shared.Obj;
 
 public class Data_In extends Thread {

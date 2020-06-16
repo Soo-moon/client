@@ -17,8 +17,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Main">
-
         </activity>
+
         <activity android:name=".Shop"></activity>
         <activity android:name=".vs" />
         <activity android:name=".BuyorSell"></activity>

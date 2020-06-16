@@ -3,13 +3,17 @@ package DnM.client;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import Naver.Login;
 import Network.Network;
 import shared.Obj;
 import shared.Player;
@@ -58,7 +62,14 @@ public class Main extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         userData.setTeamdata(Main.myteam);
-        Network.Send(new Obj(userData ,2));
+        Login.network.Send(new Obj(userData ,2));
+        Handler mHandler = new Handler();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        },1000);
         super.onDestroy();
     }
 

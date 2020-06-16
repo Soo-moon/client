@@ -4,13 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -23,8 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import DnM.client.Main;
-import Network.Network;
 import DnM.client.R;
+import Network.Network;
 import shared.UserData;
 
 
@@ -40,11 +39,11 @@ public class Login extends Activity {
     private static OAuthLogin mOAuthLoginInstance;
     public static Context mContext;
 
-    public static String personalid  = null;
+    public static String personalid = null;
 
     public static UserData userData = new UserData();
-    public static Network network = new Network();
 
+    public static Network network;
     private static MediaPlayer mp;
 
     @Override
@@ -111,24 +110,22 @@ public class Login extends Activity {
         protected void onPostExecute(String content) {
             try {
 
-                JSONObject jsonObject =new JSONObject(content);
+                JSONObject jsonObject = new JSONObject(content);
                 JSONObject response = jsonObject.getJSONObject("response");
-                String t=response.getString("email");
-                personalid = t.substring(0,t.lastIndexOf("@"));
+                String t = response.getString("email");
+                personalid = t.substring(0, t.lastIndexOf("@"));
                 Login.userData.setid(personalid);
-                Log.d("test",personalid);
+                Log.d("test", personalid);
 
                 Intent intent = new Intent(mContext, Main.class);
-
+                network = new Network();
 
                 network.start();
                 try {
                     network.join();
-
                 } catch (InterruptedException e) {
                     Log.d("error", "접속 오류" + e.getClass().getName() + ": " + e.getMessage());
                 }
-
 
                 startActivity(intent);
                 finish();
@@ -138,6 +135,7 @@ public class Login extends Activity {
             }
         }
     }
+
     @Override
     public void onBackPressed() {
         mp.stop();

@@ -5,12 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -18,12 +18,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-
-import Naver.Login;
-import shared.Player;
 
 public class Userinfo extends AppCompatActivity {
     private RelativeLayout RelativeLayout;
@@ -32,6 +28,7 @@ public class Userinfo extends AppCompatActivity {
     ListView listView;
     EditText editText;
     TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,33 +37,45 @@ public class Userinfo extends AppCompatActivity {
         RelativeLayout = findViewById(R.id.relative);
         listView = findViewById(R.id.userinfo_listview);
 
+        editText = findViewById(R.id.userinfo_edittext);
+        textView = findViewById(R.id.userinfo_textview1);
+
+
+        textView.setText(Main.userData.getInrto());
 
         //내 정보 <- 팀데이터 리스트뷰에 담기
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam) ;
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Main.myteam);
         listView.setAdapter(adapter);
-        Log.d("test",  "리스트뷰");
+
+
+        Log.d("test", "리스트뷰");
 
         Drawable draw = getResources().getDrawable(R.drawable.main);
         draw.setAlpha(70);
         RelativeLayout.setBackgroundDrawable(draw);
 
         imageview = findViewById(R.id.userinfo_imageView);
+        if (Main.userData.getBitmap()!=null)
+            imageview.setImageBitmap(decodeBitmap(Main.userData.getBitmap()));
+
         button = findViewById(R.id.button);
 
-        }
+    }
 
-    public void userinfo_profilebtn(View view){              //프로필 사진 변경 클릭시
+    public void userinfo_profilebtn(View view) {              //프로필 사진 변경 클릭시
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, 1);
     }
-    public void userinfo_profileimage(View view){             //프로필 이미지 클릭시
+
+    public void userinfo_profileimage(View view) {             //프로필 이미지 클릭시
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, 1);
     }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {    //갤러리 연동
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
@@ -77,25 +86,37 @@ public class Userinfo extends AppCompatActivity {
                     in.close();
                     // 이미지 표시
                     imageview.setImageBitmap(img);
-                    textView = findViewById(R.id.myImageViewText);
+                    TextView textView = findViewById(R.id.myImageViewText);
                     textView.setText("");
+                    Main.userData.setBitmap(getBase64String(img));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
     }
-    public void userinfo_exit(View view){
+
+    public void userinfo_exit(View view) {
         finish();
     }
 
-    public void userinfo_edittextbtn(View view){
-        editText = findViewById(R.id.userinfo_edittext);
-        textView = findViewById(R.id.userinfo_textview1);
-        String str =  editText.getText().toString();
+    public void userinfo_edittextbtn(View view) {
+        String str = editText.getText().toString();
         editText.setText("");
-
         textView.setText(str);
+        Main.userData.setintro(str);
+    }
 
+    public String getBase64String(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        byte[] imageByres = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imageByres, Base64.NO_WRAP);
+
+    }
+
+    public Bitmap decodeBitmap(String img) {
+        byte[] decodeBytearray = Base64.decode(img, Base64.NO_WRAP);
+        return BitmapFactory.decodeByteArray(decodeBytearray, 0, decodeBytearray.length);
     }
 }

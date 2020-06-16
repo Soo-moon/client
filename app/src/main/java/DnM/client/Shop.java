@@ -8,10 +8,6 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
-import shared.Player;
-
 public class Shop extends AppCompatActivity {
 
 

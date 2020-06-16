@@ -1,31 +1,19 @@
 package mFragment;
 
 import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.PopupWindow;
 
 import androidx.annotation.RequiresApi;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 import java.util.ArrayList;
 
 import DnM.client.BuyorSell;
 import DnM.client.R;
-import DnM.client.Reinforce;
 import shared.Player;
 
 public class mPage1 extends Fragment {
