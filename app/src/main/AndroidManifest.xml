@@ -25,7 +25,7 @@
         <activity android:name=".Reinforce" />
         <activity
             android:name=".Userinfo"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="Naver.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

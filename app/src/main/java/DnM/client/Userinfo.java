@@ -77,6 +77,8 @@ public class Userinfo extends AppCompatActivity {
                     in.close();
                     // 이미지 표시
                     imageview.setImageBitmap(img);
+                    textView = findViewById(R.id.myImageViewText);
+                    textView.setText("");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
