@@ -55,11 +55,13 @@ public class Data_In extends Thread {
                         Log.d("test", String.valueOf(obj.getarray().size()));
                         break;
                     case 110:
+                        Log.d("test", "110");
                         vs.result = obj.getstr() + "님 과 대결에서 승리 하였습니다 " ;
                         Intent intent = new Intent(vstest.context , vs.class);
                         vstest.context.startActivity(intent);
                         break;
                     case 111:
+                        Log.d("test", "111");
                         vs.result = obj.getstr() + "님 과 대결에서 패배 하였습니다 " ;
                         Intent intent2 = new Intent(vstest.context , vs.class);
                         vstest.context.startActivity(intent2);
