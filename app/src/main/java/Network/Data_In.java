@@ -56,11 +56,13 @@ public class Data_In extends Thread {
                         break;
                     case 110:
                         vs.result = obj.getstr() + "님 과 대결에서 승리 하였습니다 " ;
-                        vstest.check= false;
+                        Intent intent = new Intent(vstest.context , vs.class);
+                        vstest.context.startActivity(intent);
                         break;
                     case 111:
                         vs.result = obj.getstr() + "님 과 대결에서 패배 하였습니다 " ;
-                        vstest.check= false;
+                        Intent intent2 = new Intent(vstest.context , vs.class);
+                        vstest.context.startActivity(intent2);
                         break;
 
                     //통신 종료

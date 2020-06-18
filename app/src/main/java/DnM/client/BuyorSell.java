@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import Naver.Login;
-import mFragment.mPage1;
-import mFragment.mPage2;
-import mFragment.mPage3;
+import ProgramData.mPage1;
+import ProgramData.mPage2;
+import ProgramData.mPage3;
 import shared.Obj;
 import shared.Player;
 
