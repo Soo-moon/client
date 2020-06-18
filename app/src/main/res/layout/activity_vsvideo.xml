@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<FrameLayout
+    android:id="@+id/videoview_frame"
+    android:layout_width="match_parent"
+    android:layout_height="270dp">
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</FrameLayout>
+
+    <TextView
+        android:id="@+id/videotext"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:textSize="60dp"
+        android:gravity="center_vertical|center_horizontal"
+        >
+    </TextView>
+</LinearLayout>

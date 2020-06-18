@@ -3,18 +3,14 @@ package DnM.client;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import Naver.Login;
-import Network.Network;
 import shared.Obj;
 import shared.Player;
 import shared.UserData;
@@ -54,7 +50,7 @@ public class Main extends AppCompatActivity {
     }
 
     public void vs(View view) {
-        Intent intent = new Intent(getApplicationContext(), vs.class);
+        Intent intent = new Intent(getApplicationContext(), vstest.class);
         startActivity(intent);
 
     }

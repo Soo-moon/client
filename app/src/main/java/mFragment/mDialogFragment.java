@@ -62,12 +62,12 @@ public class mDialogFragment extends DialogFragment {
         @Override
         public void onClick(View v) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("구매 재차확인");
-            builder.setMessage("구매하시겠습니까?");
+            builder.setTitle("영입 재차확인");
+            builder.setMessage("영입하시겠습니까?");
             builder.setPositiveButton("예",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "구매 했습니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "영입 했습니다.", Toast.LENGTH_LONG).show();
                             Main.myteam.add(player);
                             Log.d("test","myteam 변경");
 

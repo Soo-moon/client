@@ -47,7 +47,7 @@
                 android:background="#00000000"
                 android:fontFamily="@font/mapo"
                 android:padding="16dp"
-                android:text="구매"
+                android:text="영입"
                 android:textColor="#ff7a00"
                 android:textSize="15sp" />
 
