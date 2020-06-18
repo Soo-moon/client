@@ -1,5 +1,8 @@
 package Network;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import java.io.IOException;
@@ -7,6 +10,8 @@ import java.io.ObjectInputStream;
 
 import DnM.client.BuyorSell;
 import DnM.client.Main;
+import DnM.client.vs;
+import DnM.client.vstest;
 import shared.Obj;
 
 public class Data_In extends Thread {
@@ -49,6 +54,15 @@ public class Data_In extends Thread {
                         BuyorSell.SearchData = obj.getarray();
                         Log.d("test", String.valueOf(obj.getarray().size()));
                         break;
+                    case 110:
+                        vs.result = obj.getstr() + "님 과 대결에서 승리 하였습니다 " ;
+                        vstest.check= false;
+                        break;
+                    case 111:
+                        vs.result = obj.getstr() + "님 과 대결에서 패배 하였습니다 " ;
+                        vstest.check= false;
+                        break;
+
                     //통신 종료
                     case 999:
                         Log.d("test","종료 패킷");

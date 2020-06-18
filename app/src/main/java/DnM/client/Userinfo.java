@@ -105,7 +105,7 @@ public class Userinfo extends AppCompatActivity {
     }
 
     public void userinfo_exit(View view) {
-        finish();
+       finish();
     }
 
     public void userinfo_edittextbtn(View view) {

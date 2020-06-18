@@ -3,6 +3,8 @@ package DnM.client;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -21,7 +23,6 @@ public class Main extends AppCompatActivity {
 
     public static UserData userData = new UserData();
     public static ArrayList<Player> myteam = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class Main extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         userData.setTeamdata(Main.myteam);
-        Login.network.Send(new Obj(userData ,2));
+        Login.network.Send(new Obj(userData, 2));
         super.onDestroy();
     }
 

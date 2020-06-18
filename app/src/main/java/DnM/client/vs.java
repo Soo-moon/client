@@ -28,7 +28,9 @@ import Network.Network;
 public class vs extends AppCompatActivity {
     VideoView videoView;
     FrameLayout frameLayout;
-    TextView textView;
+    TextView resultview;
+
+    public static String result="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class vs extends AppCompatActivity {
 
         frameLayout = findViewById(R.id.videoview_frame);
         videoView = findViewById(R.id.videoView);
-        textView = findViewById(R.id.videotext);
+        resultview = findViewById(R.id.videotext);
 
         try {
             Uri videofile = Uri.parse("android.resource://" + getPackageName() + "/raw/successvideo");
@@ -48,18 +50,27 @@ public class vs extends AppCompatActivity {
             videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
-                    Log.d(getClass().getName(), "onCompletion()");
-                    textView.setText("승리");
-                    finish();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("test", "결과값: "+ result);
+                            resultview.setText(result);
+                        }
+                    });
+
+                    Handler mHandler = new Handler();
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("test", "vs액티비티 종료");
+                            finish();
+                        }
+                    },2000);
                 }
             });
         } catch (Exception ex) {
             Log.d(getClass().getName(), "Video failed:'" + ex + "");
             ex.printStackTrace();
         }
-
-        ObjectOutputStream out = Network.oout;
-
-
     }
 }
