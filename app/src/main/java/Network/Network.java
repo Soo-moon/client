@@ -30,7 +30,7 @@ public class Network extends Thread {
 
             socket = new Socket(localhost, 5550);
             oout = new ObjectOutputStream(socket.getOutputStream());
-            Send(new Obj(Login.userData,0));
+            Send(new Obj(Login.userData,10));
             oin = new ObjectInputStream(socket.getInputStream());
             recv();
 
@@ -42,6 +42,7 @@ public class Network extends Thread {
     public static void Send(Obj object){
         Data_out data_out = new Data_out(oout, object);
         data_out.start();
+
     }
 
     public void recv(){

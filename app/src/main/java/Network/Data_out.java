@@ -21,6 +21,7 @@ public class Data_out extends Thread {
         try {
             outputStream.writeObject(object);
             outputStream.flush();
+            Log.d("test", "서버 전송 코드: "+object.getcode());
 
         } catch (Exception e) {
             Log.d("error", "Send error " + e.getClass().getName() + ": " + e.getMessage());
