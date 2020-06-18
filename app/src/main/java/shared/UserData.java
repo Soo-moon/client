@@ -38,5 +38,11 @@ public class UserData implements Serializable {
         return bitmap;
     }
 
-
+    public int Teampoint() {
+        int teampoint = 0;
+        for(int i = 0 ; i< playerArrayList.size(); i++) {
+            teampoint += playerArrayList.get(i).stat();
+        }
+        return teampoint;
+    }
 }
