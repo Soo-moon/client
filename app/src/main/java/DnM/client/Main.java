@@ -3,8 +3,6 @@ package DnM.client;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -51,7 +49,7 @@ public class Main extends AppCompatActivity {
     }
 
     public void vs(View view) {
-        Intent intent = new Intent(getApplicationContext(), vstest.class);
+        Intent intent = new Intent(getApplicationContext(), vsfirst.class);
         startActivity(intent);
 
     }

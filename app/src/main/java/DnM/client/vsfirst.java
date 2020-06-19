@@ -15,7 +15,7 @@ import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import Naver.Login;
 import shared.Obj;
 
-public class vstest extends AppCompatActivity {
+public class vsfirst extends AppCompatActivity {
 
     public static Context context;
 

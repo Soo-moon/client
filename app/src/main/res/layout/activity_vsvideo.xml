@@ -13,12 +13,9 @@
         android:layout_height="fill_parent" />
 </FrameLayout>
 
-    <TextView
-        android:id="@+id/videotext"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:textSize="60dp"
-        android:gravity="center_vertical|center_horizontal"
-        >
-    </TextView>
+    <ImageView
+        android:id="@+id/gif_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="TODO" />
 </LinearLayout>

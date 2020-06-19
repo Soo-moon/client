@@ -1,8 +1,6 @@
 package Network;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 
 import java.io.IOException;
@@ -11,7 +9,7 @@ import java.io.ObjectInputStream;
 import DnM.client.BuyorSell;
 import DnM.client.Main;
 import DnM.client.vs;
-import DnM.client.vstest;
+import DnM.client.vsfirst;
 import shared.Obj;
 
 public class Data_In extends Thread {
@@ -57,14 +55,14 @@ public class Data_In extends Thread {
                     case 110:
                         Log.d("test", "110");
                         vs.result = obj.getstr() + "님 과 대결에서 승리 하였습니다 " ;
-                        Intent intent = new Intent(vstest.context , vs.class);
-                        vstest.context.startActivity(intent);
+                        Intent intent = new Intent(vsfirst.context , vs.class);
+                        vsfirst.context.startActivity(intent);
                         break;
                     case 111:
                         Log.d("test", "111");
                         vs.result = obj.getstr() + "님 과 대결에서 패배 하였습니다 " ;
-                        Intent intent2 = new Intent(vstest.context , vs.class);
-                        vstest.context.startActivity(intent2);
+                        Intent intent2 = new Intent(vsfirst.context , vs.class);
+                        vsfirst.context.startActivity(intent2);
                         break;
 
                     //통신 종료
