@@ -64,6 +64,11 @@ public class Data_In extends Thread {
                         Intent intent2 = new Intent(vsfirst.context , vs.class);
                         vsfirst.context.startActivity(intent2);
                         break;
+                        //매칭 성공시 메세지
+                    case 112:
+                        Log.d("test","112");
+
+
 
                     //통신 종료
                     case 999:
