@@ -44,7 +44,7 @@ public class vs extends AppCompatActivity {
         frameLayout = findViewById(R.id.videoview_frame);
         textView = findViewById(R.id.videoview_text);
         videoView = findViewById(R.id.videoView);
-        
+
         int num = new Random().nextInt(2);
         Handler mHandler = new Handler();
 

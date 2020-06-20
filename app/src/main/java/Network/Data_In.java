@@ -67,8 +67,7 @@ public class Data_In extends Thread {
                         //매칭 성공시 메세지
                     case 112:
                         Log.d("test","112");
-
-
+                        
 
                     //통신 종료
                     case 999:
