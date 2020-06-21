@@ -26,6 +26,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Network.Network;
+import ProgramData.mVideoView;
 
 
 public class vs extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class vs extends AppCompatActivity {
 
         frameLayout = findViewById(R.id.videoview_frame);
         textView = findViewById(R.id.videoview_text);
-        videoView = findViewById(R.id.videoView);
+        videoView = (mVideoView) findViewById(R.id.videoView);
 
 
         Handler mHandler = new Handler();
@@ -84,7 +85,7 @@ public class vs extends AppCompatActivity {
                                             Log.d("test", "vs액티비티 종료");
                                             finish();
                                         }
-                                    },2000);
+                                    },3000);
                                 }
                             });
                         } catch (Exception ex) {
@@ -126,7 +127,7 @@ public class vs extends AppCompatActivity {
                                             Log.d("test", "vs액티비티 종료");
                                             finish();
                                         }
-                                    },2000);
+                                    },3000);
                                 }
                             });
                         } catch (Exception ex) {
@@ -138,5 +139,7 @@ public class vs extends AppCompatActivity {
                 break;
         }
     }
+
+
 
 }

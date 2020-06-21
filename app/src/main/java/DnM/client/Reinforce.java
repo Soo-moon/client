@@ -132,6 +132,8 @@ public class Reinforce extends Activity {
 
             pwindo = new PopupWindow(layout, mWidthPixels - 100, mHeightPixels - 500, true);
             pwindo.showAtLocation(layout, Gravity.CENTER, 0, 0);
+
+
             btnClosePopup = layout.findViewById(R.id.btn_close);
             btnClosePopup.setOnClickListener(cancel_button_click_listner);
 

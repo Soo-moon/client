@@ -1,15 +1,23 @@
 package Network;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
 import DnM.client.BuyorSell;
 import DnM.client.Main;
+import DnM.client.R;
+import DnM.client.Reinforce;
 import DnM.client.vs;
 import DnM.client.vsfirst;
 import shared.Obj;
@@ -76,7 +84,14 @@ public class Data_In extends Thread {
                     //매칭 성공시 메세지
                     case 112:
                         Log.d("test", "112");
-
+                        Handler mHandler = new Handler(Looper.getMainLooper());
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                vsfirst.pwindo.showAtLocation(vsfirst.layout, Gravity.CENTER, 0, 0);
+                            }
+                        });
+                        break;
 
                         //통신 종료
                     case 999:
