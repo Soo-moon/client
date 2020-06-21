@@ -1,6 +1,8 @@
 package Network;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import java.io.IOException;
@@ -52,26 +54,33 @@ public class Data_In extends Thread {
                         BuyorSell.SearchData = obj.getarray();
                         Log.d("test", String.valueOf(obj.getarray().size()));
                         break;
+
                     case 110:
                         Log.d("test", "110");
-                        vs.result = obj.getstr() + "님 과 대결에서 승리 하였습니다 " ;
-                        Intent intent = new Intent(vsfirst.context , vs.class);
+                        vs.result = obj.getstr() + "님 과 대결에서 승리 하였습니다 ";
+                        vs.num = 0;
+                        Intent intent = new Intent(vsfirst.context, vs.class);
                         vsfirst.context.startActivity(intent);
+
                         break;
+
                     case 111:
                         Log.d("test", "111");
-                        vs.result = obj.getstr() + "님 과 대결에서 패배 하였습니다 " ;
-                        Intent intent2 = new Intent(vsfirst.context , vs.class);
+                        vs.result = obj.getstr() + "님 과 대결에서 패배 하였습니다 ";
+                        vs.num = 1;
+
+                        Intent intent2 = new Intent(vsfirst.context, vs.class);
                         vsfirst.context.startActivity(intent2);
                         break;
-                        //매칭 성공시 메세지
-                    case 112:
-                        Log.d("test","112");
-                        
 
-                    //통신 종료
+                    //매칭 성공시 메세지
+                    case 112:
+                        Log.d("test", "112");
+
+
+                        //통신 종료
                     case 999:
-                        Log.d("test","종료 패킷");
+                        Log.d("test", "종료 패킷");
                         end = false;
                         break;
 

@@ -1,5 +1,6 @@
 package DnM.client;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.media.MediaPlayer;
@@ -33,6 +34,8 @@ public class vs extends AppCompatActivity {
     ImageView imageView;
     TextView textView;
 
+    public static int  num = -1;
+
     public static String result="";
 
     @Override
@@ -41,11 +44,12 @@ public class vs extends AppCompatActivity {
         setContentView(R.layout.activity_vsvideo);
 
         imageView = findViewById(R.id.gif_image);
+
         frameLayout = findViewById(R.id.videoview_frame);
         textView = findViewById(R.id.videoview_text);
         videoView = findViewById(R.id.videoView);
 
-        int num = new Random().nextInt(2);
+
         Handler mHandler = new Handler();
 
         switch (num) {
@@ -67,9 +71,9 @@ public class vs extends AppCompatActivity {
                                         public void run() {
                                             Log.d("test", "결과값: "+ result);
                                             textView.setText(result);
-                                            //이미지뷰에 성공 gif 표시
-//                                            GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
-//                                            Glide.with(this).load(R.drawable.vssuccess).into(gifImage);
+        //                                    이미지뷰에 성공 gif 표시
+                                            GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
+                                            Glide.with(getApplicationContext()).load(R.drawable.vssuccess).into(gifImage);
                                         }
                                     });
 
@@ -110,8 +114,8 @@ public class vs extends AppCompatActivity {
                                             Log.d("test", "결과값: "+ result);
                                             textView.setText(result);
                                             //이미지뷰에 실패 gif 표시
-//                                            GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
-//                                            Glide.with(this).load(R.drawable.vsfail).into(gifImage);
+                                            GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(imageView);
+                                            Glide.with(getApplicationContext()).load(R.drawable.vsfail).into(gifImage);
                                         }
                                     });
 
@@ -134,4 +138,5 @@ public class vs extends AppCompatActivity {
                 break;
         }
     }
+
 }
