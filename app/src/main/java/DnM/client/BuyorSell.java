@@ -91,7 +91,7 @@ public class BuyorSell extends AppCompatActivity {
                 defultView();
             }
         });
-
+        SearchData = new ArrayList<>();
         String str = editText.getText().toString();
 
         if (position1 == 0) {

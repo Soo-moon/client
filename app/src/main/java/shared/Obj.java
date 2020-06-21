@@ -37,10 +37,4 @@ public class Obj implements Serializable {
     public String getid() { return userData.getid();}
 
     public int getcode() {return code;}
-
-
-
-
-
-
 }
